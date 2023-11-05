@@ -10,10 +10,25 @@ public class Weapon : MonoBehaviour
     [SerializeField] float damage = 10f;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitVFX;
+    [SerializeField] Ammo ammoSlot;
+    [SerializeField] bool automaticFire = false;
+
+    float shootTimer = 0.0f;
+    float firingSpeed = 0.1f;
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (automaticFire && Input.GetButton("Fire1"))
+        {
+            // Check if enough time has passed since the last shot
+            if (Time.time - shootTimer >= firingSpeed)
+            {
+                Shoot();
+                shootTimer = Time.time;
+            }
+        }
+
+        else if (!automaticFire && Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
@@ -21,8 +36,16 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        PlayMuzzleFlash();
-        ProcessRaycast();
+        if (ammoSlot.GetCurrentAmmo() > 0)
+        {
+            PlayMuzzleFlash();
+            ProcessRaycast();
+            ammoSlot.ReduceCurrentAmmo();
+        }
+        else
+        {
+            //click noise
+        }
     }
 
     private void PlayMuzzleFlash()
@@ -36,7 +59,6 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
         {
             CreateHitImpact(hit);
-            Debug.Log("I hit " + hit.transform.name);
 
             EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
             if (target == null) return;
