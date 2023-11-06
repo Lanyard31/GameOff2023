@@ -1614,6 +1614,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 310448708130650262, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
+      propertyPath: zoomedInFOV
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 310448708130650262, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 4347532289293003434}
@@ -1657,6 +1662,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 1740910960621886844, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2559577239354263356, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: ammoSlot
@@ -1672,6 +1682,11 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3493335218696158180}
+    - target: {fileID: 2902078286162561632, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3322106100698056137, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: playerCamera
@@ -1719,6 +1734,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5530053668439506803, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
+      propertyPath: range
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530053668439506803, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: damage
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530053668439506803, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 630574665234227070}
@@ -1727,11 +1752,26 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3493335218696158180}
+    - target: {fileID: 5530053668439506803, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: automaticFire
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530053668439506803, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6227793888079999640, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 4347532289293003434}
+    - target: {fileID: 6545997532689570562, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: range
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6545997532689570562, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: ammoSlot
@@ -1749,9 +1789,24 @@ PrefabInstance:
       objectReference: {fileID: 4347532289293003434}
     - target: {fileID: 8559082464309646604, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
+      propertyPath: range
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559082464309646604, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559082464309646604, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3493335218696158180}
+    - target: {fileID: 8559082464309646604, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: automaticFire
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_RootOrder
@@ -1812,7 +1867,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCamera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3179770888360593459, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
 --- !u!4 &630574665234227065 stripped
 Transform:
@@ -1826,3 +1882,27 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 8374646003155624091}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2201701259488816261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7689539615847353374, guid: 2d3a85ecde41a8246a79669975912b74,
+    type: 3}
+  m_PrefabInstance: {fileID: 8374646003155624091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &125706825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201701259488816261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c118ecea1124e3e4a846c51ebb9bfe40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
+  zoomedOutFOV: 40
+  zoomedInFOV: 22
+  zoomSpeed: 9
+  zoomOutSensitivity: 2
+  zoomInSensitivity: 1

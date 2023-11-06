@@ -17,12 +17,12 @@ public class Weapon : MonoBehaviour
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
 
-    bool canShoot = true;
+    bool canShootSingle = true;
 
 
     void Update()
     {
-        if (automaticFire && Input.GetButton("Fire1"))
+        if (automaticFire && Input.GetMouseButton(0))
         {
             // Check if enough time has passed since the last shot
             if (Time.time - shootTimer >= firingSpeed)
@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        else if (!automaticFire && Input.GetButtonDown("Fire1"))
+        else if (!automaticFire && canShootSingle && Input.GetMouseButton(0))
         {
             StartCoroutine(ShootOnce());
         }
@@ -54,7 +54,7 @@ public class Weapon : MonoBehaviour
 
     IEnumerator ShootOnce()
     {
-        canShoot = false;
+        canShootSingle = false;
         if (ammoSlot.GetCurrentAmmo() > 0)
         {
             PlayMuzzleFlash();
@@ -66,6 +66,7 @@ public class Weapon : MonoBehaviour
             //click noise
         }
         yield return new WaitForSeconds(timeBetweenShots);
+        canShootSingle = true;
     }
 
     private void PlayMuzzleFlash()
