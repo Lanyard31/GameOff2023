@@ -12,9 +12,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitVFX;
     [SerializeField] Ammo ammoSlot;
     [SerializeField] bool automaticFire = false;
+    [SerializeField] float timeBetweenShots = 0.5f;
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
+
+    bool canShoot = true;
+
 
     void Update()
     {
@@ -23,18 +27,18 @@ public class Weapon : MonoBehaviour
             // Check if enough time has passed since the last shot
             if (Time.time - shootTimer >= firingSpeed)
             {
-                Shoot();
+                ShootAuto();
                 shootTimer = Time.time;
             }
         }
 
         else if (!automaticFire && Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            StartCoroutine(ShootOnce());
         }
     }
 
-    void Shoot()
+    void ShootAuto()
     {
         if (ammoSlot.GetCurrentAmmo() > 0)
         {
@@ -46,6 +50,22 @@ public class Weapon : MonoBehaviour
         {
             //click noise
         }
+    }
+
+    IEnumerator ShootOnce()
+    {
+        canShoot = false;
+        if (ammoSlot.GetCurrentAmmo() > 0)
+        {
+            PlayMuzzleFlash();
+            ProcessRaycast();
+            ammoSlot.ReduceCurrentAmmo();
+        }
+        else
+        {
+            //click noise
+        }
+        yield return new WaitForSeconds(timeBetweenShots);
     }
 
     private void PlayMuzzleFlash()

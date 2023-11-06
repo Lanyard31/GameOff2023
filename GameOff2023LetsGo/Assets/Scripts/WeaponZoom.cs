@@ -17,7 +17,7 @@ public class WeaponZoom : MonoBehaviour
     private void Awake()
     {
         playerCamera.m_Lens.FieldOfView = zoomedOutFOV;
-        fpsController = GetComponent<FirstPersonController>();
+        fpsController = GetComponentInParent<FirstPersonController>();
         fpsController.RotationSpeed = zoomOutSensitivity;
     }
 
