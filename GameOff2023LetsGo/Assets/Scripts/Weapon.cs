@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitVFX;
     [SerializeField] Ammo ammoSlot;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] bool automaticFire = false;
     [SerializeField] float timeBetweenShots = 0.5f;
 
@@ -19,6 +20,10 @@ public class Weapon : MonoBehaviour
 
     bool canShootSingle = true;
 
+    private void OnEnable()
+    {
+        canShootSingle = true;
+    }
 
     void Update()
     {
@@ -40,11 +45,11 @@ public class Weapon : MonoBehaviour
 
     void ShootAuto()
     {
-        if (ammoSlot.GetCurrentAmmo() > 0)
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
             ProcessRaycast();
-            ammoSlot.ReduceCurrentAmmo();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
         }
         else
         {
@@ -55,11 +60,11 @@ public class Weapon : MonoBehaviour
     IEnumerator ShootOnce()
     {
         canShootSingle = false;
-        if (ammoSlot.GetCurrentAmmo() > 0)
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
             ProcessRaycast();
-            ammoSlot.ReduceCurrentAmmo();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
         }
         else
         {

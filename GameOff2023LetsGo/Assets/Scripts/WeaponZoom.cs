@@ -16,8 +16,9 @@ public class WeaponZoom : MonoBehaviour
 
     private void Awake()
     {
-        playerCamera.m_Lens.FieldOfView = zoomedOutFOV;
+        //playerCamera.m_Lens.FieldOfView = zoomedOutFOV;
         fpsController = GetComponentInParent<FirstPersonController>();
+        //Zoom(zoomedOutFOV);
         fpsController.RotationSpeed = zoomOutSensitivity;
     }
 
@@ -28,12 +29,12 @@ public class WeaponZoom : MonoBehaviour
 
     private void CheckZoom()
     {
-        if (Input.GetMouseButton(1) && playerCamera.m_Lens.FieldOfView > zoomedInFOV)
+        if (Input.GetMouseButton(1) && playerCamera.m_Lens.FieldOfView != zoomedInFOV)
         {
             Zoom(zoomedInFOV);
             fpsController.RotationSpeed = zoomInSensitivity;
         }
-        else if (!Input.GetMouseButton(1) && playerCamera.m_Lens.FieldOfView < zoomedOutFOV)
+        else if (!Input.GetMouseButton(1) && playerCamera.m_Lens.FieldOfView != zoomedOutFOV)
         {
             Zoom(zoomedOutFOV);
             fpsController.RotationSpeed = zoomOutSensitivity;
