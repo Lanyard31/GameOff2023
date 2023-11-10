@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
+        GetComponent<Animator>().SetTrigger("idle");
+
     }
 
     void Update()
