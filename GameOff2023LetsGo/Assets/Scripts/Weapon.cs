@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] AmmoType ammoType;
     [SerializeField] bool automaticFire = false;
     [SerializeField] float timeBetweenShots = 0.5f;
+    [SerializeField] Slider ammoSlider;
+
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
@@ -27,6 +30,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        DisplayAmmo();
         if (automaticFire && Input.GetMouseButton(0))
         {
             // Check if enough time has passed since the last shot
@@ -40,6 +44,15 @@ public class Weapon : MonoBehaviour
         else if (!automaticFire && canShootSingle && Input.GetMouseButton(0))
         {
             StartCoroutine(ShootOnce());
+        }
+    }
+
+    private void DisplayAmmo()
+    {
+        if (ammoSlider != null)
+        {
+            float ammoRatio = (float)ammoSlot.GetCurrentAmmo(ammoType) / (float)ammoSlot.GetMaxAmmo(ammoType);
+            ammoSlider.value = ammoRatio;
         }
     }
 
