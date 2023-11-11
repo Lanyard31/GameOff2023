@@ -1721,6 +1721,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4528373496327619539, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869810327701350406, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: damageEffectScript
+      value: 
+      objectReference: {fileID: 5010189449481317862}
     - target: {fileID: 5033992317426324446, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7845,6 +7855,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5010189449722492410, guid: 97a5c0918421a654a83ab74efbeeb0e6,
+        type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823,
+        type: 2}
     - target: {fileID: 6822396595762328586, guid: 97a5c0918421a654a83ab74efbeeb0e6,
         type: 3}
       propertyPath: m_Name
@@ -7852,3 +7868,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a5c0918421a654a83ab74efbeeb0e6, type: 3}
+--- !u!1 &5010189449481317861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5010189449722492409, guid: 97a5c0918421a654a83ab74efbeeb0e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5010189449481317860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5010189449481317862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010189449481317861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eefe0146d162f148993403846d30394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageIntensity: 1
+  damageDuration: 0.8
