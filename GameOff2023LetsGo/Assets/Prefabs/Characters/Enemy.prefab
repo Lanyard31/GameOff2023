@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af9af894aa01d54a8a7c0f049204880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   chaseRange: 12
   turnSpeed: 5
 --- !u!114 &6686408380335465323
@@ -121,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2675e3f0b278e8a4d90d64ca3bdf36e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
+  damage: 20
 --- !u!136 &7080639758412433737
 CapsuleCollider:
   m_ObjectHideFlags: 0
