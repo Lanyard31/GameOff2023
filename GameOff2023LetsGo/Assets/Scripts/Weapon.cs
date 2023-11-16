@@ -95,14 +95,24 @@ public class Weapon : MonoBehaviour
     private void ProcessRaycast()
     {
         RaycastHit hit;
-        if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
+
+        // Define a layer mask excluding the player layer
+        int playerLayer = LayerMask.NameToLayer("Player");
+        int layerMask = 1 << playerLayer;
+        layerMask = ~layerMask;
+
+        if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range, layerMask))
         {
             CreateHitImpact(hit);
 
-            EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
-            if (target == null) return;
+            // Check if the hit object is not on the player layer
+            if (hit.transform.gameObject.layer != playerLayer)
+            {
+                EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
+                if (target == null) return;
 
-            target.TakeDamage(damage);
+                target.TakeDamage(damage);
+            }
         }
         else
         {
