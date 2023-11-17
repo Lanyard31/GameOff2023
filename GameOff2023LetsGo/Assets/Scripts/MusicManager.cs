@@ -55,6 +55,7 @@ public class MusicManager : MonoBehaviour
 
     private void FindNewTrack()
     {
+        lastTrack = audioSource.clip;
         if (lastTrack != null)
         {
             audioSource.clip = music[Random.Range(0, music.Length)];
@@ -68,6 +69,6 @@ public class MusicManager : MonoBehaviour
         {
             audioSource.clip = music[Random.Range(0, music.Length)];
         }
-        lastTrack = audioSource.clip;
+        //lastTrack = audioSource.clip;
     }
 }
