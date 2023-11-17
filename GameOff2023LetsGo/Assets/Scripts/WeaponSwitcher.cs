@@ -8,17 +8,20 @@ public class WeaponSwitcher : MonoBehaviour
     //probably scrap to change each time you run out of ammo
 
     [SerializeField] int currentWeapon = 0;
-
+    [SerializeField] Ammo ammoSlot;
 
 
     void Start()
     {
         SetWeaponActive();
+
     }
 
-    
+    /*
     void Update()
     {
+
+        
         int previousWeapon = currentWeapon;
         
         ProcessKeyInput();
@@ -28,6 +31,20 @@ public class WeaponSwitcher : MonoBehaviour
         {
             SetWeaponActive();
         }
+    }
+    */
+
+        public void NextWeapon()
+    {
+        if (currentWeapon >= transform.childCount - 1)
+        {
+            currentWeapon = 0;
+        }
+        else
+        {
+            currentWeapon++;
+        }
+        SetWeaponActive();
     }
 
     private void ProcessKeyInput()

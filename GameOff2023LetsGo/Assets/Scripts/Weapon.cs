@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] AudioSource gunshotAudioSource;
     [SerializeField] float volumeLowEnd = 0.3f;
     [SerializeField] float volumeHighEnd = 0.4f;
+    [SerializeField] WeaponSwitcher weaponSwitcher;
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
@@ -70,7 +71,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            //click noise
+            weaponSwitcher.NextWeapon();
         }
     }
 
@@ -86,7 +87,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            //click noise
+            weaponSwitcher.NextWeapon();
         }
         yield return new WaitForSeconds(timeBetweenShots);
         canShootSingle = true;
