@@ -16,7 +16,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] bool automaticFire = false;
     [SerializeField] float timeBetweenShots = 0.5f;
     [SerializeField] Slider ammoSlider;
-
+    [SerializeField] AudioClip[] gunshotSounds;
+    [SerializeField] AudioSource gunshotAudioSource;
+    [SerializeField] float volumeLowEnd = 0.3f;
+    [SerializeField] float volumeHighEnd = 0.4f;
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
@@ -62,6 +65,7 @@ public class Weapon : MonoBehaviour
         {
             PlayMuzzleFlash();
             ProcessRaycast();
+            PlayGunshotSound();
             ammoSlot.ReduceCurrentAmmo(ammoType);
         }
         else
@@ -77,6 +81,7 @@ public class Weapon : MonoBehaviour
         {
             PlayMuzzleFlash();
             ProcessRaycast();
+            PlayGunshotSound();
             ammoSlot.ReduceCurrentAmmo(ammoType);
         }
         else
@@ -124,5 +129,26 @@ public class Weapon : MonoBehaviour
     {
         GameObject impact = Instantiate(hitVFX, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impact, 0.1f);
+    }
+
+    public void PlayGunshotSound()
+    {
+        if (gunshotSounds.Length == 0 || gunshotAudioSource == null)
+        {
+            Debug.LogError("Gunshot sounds or audio source not set!");
+            return;
+        }
+
+        // Randomly select a gunshot sound from the array
+        AudioClip selectedSound = gunshotSounds[UnityEngine.Random.Range(0, gunshotSounds.Length)];
+
+        // Set random variations for pitch and volume
+        float pitch = UnityEngine.Random.Range(0.9f, 1.1f); // Adjust the range as needed
+        float volume = UnityEngine.Random.Range(volumeLowEnd, volumeHighEnd); // Adjust the range as needed
+
+        // Play the gunshot sound with variations
+        gunshotAudioSource.pitch = pitch;
+        gunshotAudioSource.volume = volume;
+        gunshotAudioSource.PlayOneShot(selectedSound);
     }
 }
