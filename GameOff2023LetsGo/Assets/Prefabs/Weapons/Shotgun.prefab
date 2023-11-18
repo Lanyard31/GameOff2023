@@ -64,6 +64,7 @@ MonoBehaviour:
   gunshotAudioSource: {fileID: 3511761766165140031}
   volumeLowEnd: 0.3
   volumeHighEnd: 0.4
+  weaponSwitcher: {fileID: 0}
 --- !u!114 &7355969495313566005
 MonoBehaviour:
   m_ObjectHideFlags: 0

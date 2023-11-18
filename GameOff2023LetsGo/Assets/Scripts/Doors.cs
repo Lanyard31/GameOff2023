@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
+    [SerializeField] Transform playerTransform;
+    [SerializeField] float lowRangeThreshold = 5f;
+    [SerializeField] float highRangeThreshold = 20f;
+    [SerializeField] bool doorsCanClose;
     private Animator animator;
-    private bool playerInRange = false;
-    private bool doorsAreOpen = false;
+    private bool doorsHaveClosed;
 
     void Start()
     {
@@ -15,41 +19,35 @@ public class Doors : MonoBehaviour
 
     void Update()
     {
-        // Check if the player is in range
-        if (playerInRange)
+        if (doorsHaveClosed) return;
+        float playerRange = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (playerRange <= lowRangeThreshold)
         {
-            // Play the animation
-            animator.Play("doorsAnim");
+            OpenDoors();
+        }
+
+        else if (doorsCanClose && playerRange >= highRangeThreshold)
+        {
+            CloseDoors();
         }
     }
 
-    // OnTriggerEnter is called when the Collider other enters the trigger
-    void OnTriggerEnter(Collider other)
+    private void OpenDoors()
     {
-        // Check if the entering collider is the player
-        if (other.gameObject.tag == "Player" && doorsAreOpen == false)
-        {
-            // Set the player in range
-            playerInRange = true;
-            //enabled = false;
-        }
+        animator.Play("doorsAnim");
     }
 
-//Better to close doors and delete script with another invis trigger object if necessary
-
-/*
-    // OnTriggerExit is called when the Collider other has stopped touching the trigger
-    void OnTriggerExit(Collider other)
+    private void CloseDoors()
     {
-        // Check if the exiting collider is the player
-        if (other.gameObject.tag == "Player" && doorsAreOpen == true)
-        {
-            // Set the player out of range
-            playerInRange = false;
-
-            enabled = false;
-        }
+        animator.Play("doorsCloseAnim");
+        doorsHaveClosed = true;
     }
-    */
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, lowRangeThreshold);
+        Gizmos.DrawWireSphere(transform.position, highRangeThreshold);
+    }
 }

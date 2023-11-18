@@ -71,6 +71,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
+            ammoSlot.SetCurrentAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType)));
             weaponSwitcher.NextWeapon();
         }
     }
@@ -87,6 +88,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
+            ammoSlot.SetCurrentAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType)));
             weaponSwitcher.NextWeapon();
         }
         yield return new WaitForSeconds(timeBetweenShots);

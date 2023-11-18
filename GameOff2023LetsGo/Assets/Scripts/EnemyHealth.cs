@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
+    [SerializeField] GameObject[] explosions;
 
     bool isDead = false;
 
@@ -30,5 +31,13 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
         GetComponent<Animator>().SetTrigger("die");
         //Destroy(gameObject);
+        Invoke("Kaboom", 1.2f);
+    }
+
+    public void Kaboom()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, explosions.Length);
+        Instantiate(explosions[randomIndex], transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
