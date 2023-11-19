@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
         GetComponent<Animator>().SetTrigger("die");
         //Destroy(gameObject);
-        Invoke("Kaboom", 1.2f);
+        Invoke("Kaboom", UnityEngine.Random.Range(0.6f, 0.85f));
     }
 
     public void Kaboom()
