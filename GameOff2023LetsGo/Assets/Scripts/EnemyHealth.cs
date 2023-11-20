@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
     [SerializeField] GameObject[] explosions;
+    [SerializeField] ObjectPool gearPool;
+    [SerializeField] int gearsToAdd = 3;
 
     bool isDead = false;
 
@@ -30,14 +32,24 @@ public class EnemyHealth : MonoBehaviour
         if (isDead) return;
         isDead = true;
         GetComponent<Animator>().SetTrigger("die");
-        //Destroy(gameObject);
         Invoke("Kaboom", UnityEngine.Random.Range(0.6f, 0.85f));
     }
 
     public void Kaboom()
     {
         int randomIndex = UnityEngine.Random.Range(0, explosions.Length);
-        Instantiate(explosions[randomIndex], transform.position, Quaternion.identity);
+        SpawnGears();
+        Instantiate(explosions[randomIndex], transform.position, explosions[randomIndex].transform.rotation);
         Destroy(gameObject);
+    }
+
+    void SpawnGears()
+    {
+        for (int i = 0; i < gearsToAdd; i++)
+        {
+            GameObject gear = gearPool.GetPooledObject();
+            gear.SetActive(true);
+            gear.transform.position = transform.position; // Adjust position as needed
+        }
     }
 }
