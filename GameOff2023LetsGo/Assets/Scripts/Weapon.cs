@@ -118,8 +118,12 @@ public class Weapon : MonoBehaviour
             {
                 EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
                 if (target == null) return;
+                if (target.isDead == true) return;
 
-                target.TakeDamage(damage);
+                float randomizedDamage = damage + UnityEngine.Random.Range(-5, 5);
+                target.TakeDamage(randomizedDamage);
+                Vector3 skewedHitPoint = new Vector3(hit.point.x + UnityEngine.Random.Range(-0.3f, 0.3f), hit.point.y + 0.25f, hit.point.z + UnityEngine.Random.Range(-0.3f, 0.3f));
+                DynamicTextManager.CreateText(skewedHitPoint, randomizedDamage.ToString(), DynamicTextManager.defaultData);
             }
         }
         else

@@ -7,20 +7,25 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float turnSpeed = 5f;
+    AudioSource audioSource;
 
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
     EnemyHealth enemyHealth;
     Transform target;
+    [SerializeField] Outline outline;
 
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.pitch = Random.Range(0.85f, 1.15f);
         GetComponent<Animator>().SetTrigger("idle");
         target = FindObjectOfType<PlayerHealth>().transform;
+        this.transform.rotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
     }
 
     void Update()
@@ -47,7 +52,7 @@ public class EnemyAI : MonoBehaviour
     {
         isProvoked = true;
     }
-
+    
     void EngageTarget()
     {
         FaceTarget();
@@ -65,6 +70,10 @@ public class EnemyAI : MonoBehaviour
 
     void ChaseTarget()
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
         GetComponent<Animator>().SetBool("attack", false);
         GetComponent<Animator>().SetTrigger("move");
         navMeshAgent.SetDestination(target.position);

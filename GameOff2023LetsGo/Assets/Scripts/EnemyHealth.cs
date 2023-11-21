@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] ObjectPool gearPool;
     [SerializeField] int gearsToAdd = 3;
 
-    bool isDead = false;
+    public bool isDead = false;
 
     public bool IsDead()
     {
