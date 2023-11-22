@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7106134621510557176}
   - component: {fileID: 7355969495313566005}
   - component: {fileID: 3511761766165140031}
+  - component: {fileID: 794238455187471745}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -65,6 +66,9 @@ MonoBehaviour:
   volumeLowEnd: 0.3
   volumeHighEnd: 0.4
   weaponSwitcher: {fileID: 0}
+  weaponRecoil: {fileID: 794238455187471745}
+  recoilTimer: 0.6
+  recoilAmount: 0.4
 --- !u!114 &7355969495313566005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +183,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &794238455187471745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337074158997199750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a04305e2822c842a51dfbd62496367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jiggly: 0
 --- !u!1001 &420720259656012866
 PrefabInstance:
   m_ObjectHideFlags: 0

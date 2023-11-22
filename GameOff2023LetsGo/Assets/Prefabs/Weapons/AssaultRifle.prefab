@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7106134621510557176}
   - component: {fileID: 7938597444477858914}
   - component: {fileID: 9111521838573771085}
+  - component: {fileID: 3732528890816847555}
   m_Layer: 0
   m_Name: AssaultRifle
   m_TagString: Untagged
@@ -65,6 +66,10 @@ MonoBehaviour:
   gunshotAudioSource: {fileID: 9111521838573771085}
   volumeLowEnd: 0.3
   volumeHighEnd: 0.4
+  weaponSwitcher: {fileID: 0}
+  weaponRecoil: {fileID: 3732528890816847555}
+  recoilTimer: 0.5
+  recoilAmount: 0.2
 --- !u!114 &7938597444477858914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +184,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3732528890816847555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337074158997199750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a04305e2822c842a51dfbd62496367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jiggly: 0
 --- !u!1001 &420720259656012866
 PrefabInstance:
   m_ObjectHideFlags: 0

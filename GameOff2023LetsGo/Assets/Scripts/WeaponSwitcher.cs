@@ -65,6 +65,9 @@ public class WeaponSwitcher : MonoBehaviour
                 rotationPivot.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
                 yield return null;
             }
+            //reset pivot rotation and weapon rotation
+            rotationPivot.localRotation = Quaternion.Euler(0, 0, 0);
+            weapon.localRotation = Quaternion.Euler(0, 270, 0);
             gunRotating = false;
         }
     }

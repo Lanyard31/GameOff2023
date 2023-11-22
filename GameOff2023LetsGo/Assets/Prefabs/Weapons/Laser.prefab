@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7106134621510557176}
   - component: {fileID: 7260421620783764049}
   - component: {fileID: -1941684088990490875}
+  - component: {fileID: 6621828154754881877}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -67,6 +68,10 @@ MonoBehaviour:
   gunshotAudioSource: {fileID: -1941684088990490875}
   volumeLowEnd: 0.3
   volumeHighEnd: 0.4
+  weaponSwitcher: {fileID: 0}
+  weaponRecoil: {fileID: 6621828154754881877}
+  recoilTimer: 0.25
+  recoilAmount: 0.1
 --- !u!114 &7260421620783764049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +186,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6621828154754881877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2337074158997199750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a04305e2822c842a51dfbd62496367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jiggly: 1
 --- !u!1001 &420720259656012866
 PrefabInstance:
   m_ObjectHideFlags: 0

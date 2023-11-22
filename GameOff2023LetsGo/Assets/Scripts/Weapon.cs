@@ -21,6 +21,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] float volumeLowEnd = 0.3f;
     [SerializeField] float volumeHighEnd = 0.4f;
     [SerializeField] WeaponSwitcher weaponSwitcher;
+    [SerializeField] WeaponRecoil weaponRecoil;
+    [SerializeField] float recoilTimer;
+    [SerializeField] float recoilAmount = 0.1f;
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
@@ -64,6 +67,7 @@ public class Weapon : MonoBehaviour
     {
         if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
+            Recoil();
             PlayMuzzleFlash();
             ProcessRaycast();
             PlayGunshotSound();
@@ -81,6 +85,7 @@ public class Weapon : MonoBehaviour
         canShootSingle = false;
         if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
+            Recoil();
             PlayMuzzleFlash();
             ProcessRaycast();
             PlayGunshotSound();
@@ -93,6 +98,11 @@ public class Weapon : MonoBehaviour
         }
         yield return new WaitForSeconds(timeBetweenShots);
         canShootSingle = true;
+    }
+
+    private void Recoil()
+    {
+        weaponRecoil.ApplyRecoil(recoilTimer, recoilAmount);
     }
 
     private void PlayMuzzleFlash()

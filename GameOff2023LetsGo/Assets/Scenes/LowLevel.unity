@@ -10974,9 +10974,24 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: dba0811b9a2de36428b6d2ca14229e72, type: 3}
     - target: {fileID: 215961727585482135, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: recoilTimer
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 215961727585482135, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: recoilAmount
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 215961727585482135, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: weaponSwitcher
       value: 
       objectReference: {fileID: 1496467407}
+    - target: {fileID: 3377900079363390361, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: recoilAmount
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3377900079363390361, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: weaponSwitcher
@@ -10999,9 +11014,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072954631176773608, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: recoilTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072954631176773608, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: recoilAmount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072954631176773608, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: weaponSwitcher
       value: 
       objectReference: {fileID: 1496467407}
+    - target: {fileID: 4616114118640268265, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4869810327701350406, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: damageEffectScript
@@ -11012,6 +11042,11 @@ PrefabInstance:
       propertyPath: weaponSwitcher
       value: 
       objectReference: {fileID: 1496467407}
+    - target: {fileID: 6665038242668374779, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6953919992382659668, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_Color.a
@@ -29245,6 +29280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010189449079751524, guid: 97a5c0918421a654a83ab74efbeeb0e6,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5010189449079751524, guid: 97a5c0918421a654a83ab74efbeeb0e6,
         type: 3}
