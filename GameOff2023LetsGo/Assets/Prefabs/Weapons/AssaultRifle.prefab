@@ -70,6 +70,8 @@ MonoBehaviour:
   weaponRecoil: {fileID: 3732528890816847555}
   recoilTimer: 0.5
   recoilAmount: 0.2
+  weaponTiers: {fileID: 11400000, guid: 410681392b009c04082b17d33fde7884, type: 2}
+  gunMaterialColor: {fileID: 0}
 --- !u!114 &7938597444477858914
 MonoBehaviour:
   m_ObjectHideFlags: 0

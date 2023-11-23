@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
 {
-    [SerializeField] int currentWeapon = 0;
+    public int currentWeapon = 0;
     [SerializeField] Ammo ammoSlot;
 
     [SerializeField] Transform rotationPivot; // pivot point around which the gun will rotate

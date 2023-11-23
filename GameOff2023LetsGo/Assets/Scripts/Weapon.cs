@@ -25,9 +25,14 @@ public class Weapon : MonoBehaviour
     [SerializeField] float recoilTimer;
     [SerializeField] float recoilAmount = 0.1f;
 
+    public WeaponTiers weaponTiers;
+    [SerializeField] Material gunMaterialColor;
+    public int currentTierInt;
+
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
 
+    public bool canShoot = true;
     bool canShootSingle = true;
 
     private void OnEnable()
@@ -38,6 +43,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         DisplayAmmo();
+        if (!canShoot) return;
         if (automaticFire && Input.GetMouseButton(0))
         {
             // Check if enough time has passed since the last shot
@@ -167,5 +173,17 @@ public class Weapon : MonoBehaviour
         gunshotAudioSource.pitch = pitch;
         gunshotAudioSource.volume = volume;
         gunshotAudioSource.PlayOneShot(selectedSound);
+    }
+
+    public void UpgradeWeapon(int newTier)
+    {
+        currentTierInt = newTier;
+        WeaponTier currentTier = weaponTiers.tiers[newTier];
+        damage += currentTier.damageBonus;
+        firingSpeed += currentTier.firingSpeedBonus;
+        transform.localScale = currentTier.gunMeshScale;
+        gunMaterialColor = currentTier.gunMaterial;
+        //tracer effect
+        //special effect
     }
 }

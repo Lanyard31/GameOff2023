@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4340a0a71f491044ca28d51e4b76ef1a, type: 3}
+  m_Name: AssaultRifleWeaponTiers
+  m_EditorClassIdentifier: 
+  tiers:
+  - costToEnter: 0
+    damageBonus: 0
+    firingSpeedBonus: 0
+    gunMeshScale: {x: 0, y: 0, z: 0}
+    gunMaterial: {fileID: 2100000, guid: 1c2ce66a8982dc24d9f5afba85e232a1, type: 2}
+    tracerParticleEffect: {fileID: 0}
+    specialEffect: {fileID: 0}
+  - costToEnter: 100
+    damageBonus: 5
+    firingSpeedBonus: 0
+    gunMeshScale: {x: 1.05, y: 1.05, z: 1.05}
+    gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
+    tracerParticleEffect: {fileID: 0}
+    specialEffect: {fileID: 0}
+  - costToEnter: 0
+    damageBonus: 0
+    firingSpeedBonus: 0
+    gunMeshScale: {x: 0, y: 0, z: 0}
+    gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
+    tracerParticleEffect: {fileID: 0}
+    specialEffect: {fileID: 0}
+  - costToEnter: 0
+    damageBonus: 0
+    firingSpeedBonus: 0
+    gunMeshScale: {x: 0, y: 0, z: 0}
+    gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
+    tracerParticleEffect: {fileID: 0}
+    specialEffect: {fileID: 0}
+  - costToEnter: 0
+    damageBonus: 0
+    firingSpeedBonus: 0
+    gunMeshScale: {x: 0, y: 0, z: 0}
+    gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
+    tracerParticleEffect: {fileID: 0}
+    specialEffect: {fileID: 0}
