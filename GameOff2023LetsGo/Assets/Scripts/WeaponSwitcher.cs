@@ -13,6 +13,7 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] float rotationSpeed = 5.0f;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] audioClips;
+    [SerializeField] ScrapCounter scrapCounter;
 
     private bool gunRotating = false;
     private float pitchRange = 0.08f;
@@ -40,6 +41,7 @@ public class WeaponSwitcher : MonoBehaviour
     private void SetWeaponActive()
     {
         Transform weapon = transform.GetChild(currentWeapon);
+        scrapCounter.UpdateUIInfo(weapon);
         StartCoroutine(RotateWeaponOnScreen(weapon));
     }
 

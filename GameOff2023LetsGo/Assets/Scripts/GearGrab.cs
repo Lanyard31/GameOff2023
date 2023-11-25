@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GearGrab : MonoBehaviour
 {
-    public int gearCounter = 0;
+    public ScrapCounter scrapCounter;
+    //public int gearCounter = 0;
 
     void OnTriggerEnter(Collider other)
     {
@@ -12,7 +13,7 @@ public class GearGrab : MonoBehaviour
         {
             // Disable the gear, add to the counter, and perform other actions
             //other.gameObject.SetActive(false);
-            gearCounter++;
+            scrapCounter.UpdateScrapText(1);
         }
     }
 }
