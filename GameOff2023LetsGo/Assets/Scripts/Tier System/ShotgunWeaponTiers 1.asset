@@ -22,7 +22,7 @@ MonoBehaviour:
     gunMaterial: {fileID: 2100000, guid: 1c2ce66a8982dc24d9f5afba85e232a1, type: 2}
     tracerParticleEffect: {fileID: 0}
     specialEffect: {fileID: 0}
-  - costToEnter: 56
+  - costToEnter: 5
     damageBonus: 2
     firingSpeedBonus: 0.02
     gunMeshScale: {x: 1.05, y: 1.05, z: 1.05}

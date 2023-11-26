@@ -8,6 +8,7 @@ using TMPro;
 public class Upgrader : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI HoldQText;
+    [SerializeField] WeaponSwitcher weaponSwitcher;
     public bool canUpgrade;
 
     public Weapon weapon; // The weapon to upgrade
@@ -17,24 +18,22 @@ public class Upgrader : MonoBehaviour
     public GameObject particleEffect; // The particle effect to display
     public Animator weaponAnimator; // The weapon's animator
 
-    private WeaponSwitcher weaponSwitcher;
+    
     private bool isUpgrading = false;
     private int upgradeCost;
     private int newTier;
 
     void Update()
     {
-        if(!canUpgrade)
+        // Step 1: Detect if the player is pressing 'Q' or the 2 button any gamepad 
+        if (Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("West")))
         {
-            return;
+            if (canUpgrade)
+            {
+                StartUpgrade();
+            }
         }
-
-        // Step 1: Detect if the player is pressing 'Q' or East on a Controller
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("East"))
-        {
-            StartUpgrade();
-        }
-        else if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("East"))
+        else if (Input.GetKeyUp(KeyCode.Q) || (Input.GetButtonUp("West")))
         {
             CancelUpgrade();
         }
@@ -55,6 +54,7 @@ public class Upgrader : MonoBehaviour
     void StartUpgrade()
     {
         GetCurrentWeapon();
+        //Debug.Log(weapon.name);
         // Step 2: Check if they have the required cost to enter the new Tier for the currently selected Weapon
         newTier = weapon.currentTierInt + 1;
 
@@ -62,21 +62,25 @@ public class Upgrader : MonoBehaviour
         if (playerResources >= upgradeCost)
         {
             // Step 3: Play an animation on the Weapon
-            weaponAnimator.Play("Upgrade");
+            //get the WeaponAnimator from the currently active Weapon
+            if (isUpgrading == false)
+            {
+                weaponAnimator = weapon.GetComponentInChildren<Animator>();
+                weaponAnimator.Play("UpgradeAnim");
+                isUpgrading = true;
+            }
 
             // Step 4: Display an upgrade loading bar onscreen
-            upgradeBar.SetActive(true);
+            //upgradeBar.SetActive(true);
 
-            // Step 5: Display the resource for the cost to enter ticking down rapidly
-            resourceDisplay.SetActive(true);
+            // Step 5: Countdown the resource for the cost to enter ticking down rapidly
+            //resourceDisplay.SetActive(true);
 
             // Step 6: Disable Shooting while this is occurring
             weapon.canShoot = false;
 
             // Step 8: Display a particle effect
-            particleEffect.SetActive(true);
-
-            isUpgrading = true;
+            //particleEffect.SetActive(true);
         }
     }
 
@@ -90,11 +94,11 @@ public class Upgrader : MonoBehaviour
         if (isUpgrading)
         {
             // Step 7: Allow cancelling
-            weaponAnimator.StopPlayback();
-            upgradeBar.SetActive(false);
-            resourceDisplay.SetActive(false);
+            weaponAnimator.SetTrigger("exitLoop");
+            //upgradeBar.SetActive(false);
+            //resourceDisplay.SetActive(false);
             weapon.canShoot = true;
-            particleEffect.SetActive(false);
+            //particleEffect.SetActive(false);
             isUpgrading = false;
         }
     }
@@ -104,11 +108,12 @@ public class Upgrader : MonoBehaviour
         if (isUpgrading)
         {
             // Step 9: And if the loading bar successfully fills up, the public UpgradeWeapon is called on the currently active Weapon script
-            weapon.UpgradeWeapon(newTier);
-            upgradeBar.SetActive(false);
-            resourceDisplay.SetActive(false);
+            weaponAnimator.SetTrigger("exitLoop");
+            //weapon.UpgradeWeapon(newTier);
+            //upgradeBar.SetActive(false);
+            //resourceDisplay.SetActive(false);
             weapon.canShoot = true;
-            particleEffect.SetActive(false);
+            //particleEffect.SetActive(false);
             isUpgrading = false;
         }
     }

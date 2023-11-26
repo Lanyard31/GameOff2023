@@ -7,13 +7,8 @@ public class GearGrab : MonoBehaviour
     public ScrapCounter scrapCounter;
     //public int gearCounter = 0;
 
-    void OnTriggerEnter(Collider other)
+    public void IncrementGearCounter()
     {
-        if (other.CompareTag("Gear"))
-        {
-            // Disable the gear, add to the counter, and perform other actions
-            //other.gameObject.SetActive(false);
-            scrapCounter.UpdateScrapText(1);
-        }
+        scrapCounter.UpdateScrapText(1);
     }
 }

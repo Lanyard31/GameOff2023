@@ -13,6 +13,7 @@ public class Gear : MonoBehaviour
     bool homingGearActivated = false;
     public float movementSpeed = 10f;
     private bool collected = false;
+    [SerializeField] SphereCollider gearContainerCollider;
 
 
     private void OnEnable()
@@ -52,6 +53,7 @@ public class Gear : MonoBehaviour
             player = other.gameObject.transform;
             collected = true;
             homingGearActivated = true;
+            other.gameObject.GetComponent<GearGrab>().IncrementGearCounter();
         }
     }
 
@@ -59,6 +61,8 @@ public class Gear : MonoBehaviour
     {
         if (player != null && homingGearActivated == true)
         {
+            //make the gear container kinematic
+            gearContainerCollider.enabled = false;
             animator.enabled = false;
             // Calculate the direction towards the player
             Vector3 direction = (player.position - transform.position).normalized;
