@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] WeaponRecoil weaponRecoil;
     [SerializeField] float recoilTimer;
     [SerializeField] float recoilAmount = 0.1f;
+    [SerializeField] GameObject laserTracer;
 
     public WeaponTiers weaponTiers;
     [SerializeField] Material gunMaterialColor;
@@ -34,6 +35,14 @@ public class Weapon : MonoBehaviour
 
     public bool canShoot = true;
     bool canShootSingle = true;
+    public bool laser = false;
+
+    private void Start()
+    {
+        //load the data
+        currentTierInt = weaponTiers.currentTier;
+        UpgradeWeapon(currentTierInt);
+    }
 
     private void OnEnable()
     {
@@ -46,6 +55,19 @@ public class Weapon : MonoBehaviour
         if (!canShoot) return;
         if (automaticFire && Input.GetMouseButton(0))
         {
+            //activate laser
+            if (laser == true)
+            {
+                laserTracer.SetActive(true);
+                laserTracer.GetComponent<DisableSelf>().timeUntilDisable = 0.2f;
+            }
+            else
+            {
+                laserTracer.SetActive(true);
+                //get particle subsytem and make it play
+                var laserTracerParticles = laserTracer.GetComponent<ParticleSystem>();
+                laserTracerParticles.Play();
+            }
             // Check if enough time has passed since the last shot
             if (Time.time - shootTimer >= firingSpeed)
             {
@@ -58,6 +80,8 @@ public class Weapon : MonoBehaviour
         {
             StartCoroutine(ShootOnce());
         }
+
+
     }
 
     private void DisplayAmmo()
@@ -177,12 +201,21 @@ public class Weapon : MonoBehaviour
 
     public void UpgradeWeapon(int newTier)
     {
+        //first subtract all the bonuses from the current tier
+        WeaponTier currentTier = weaponTiers.tiers[currentTierInt];
+        damage -= currentTier.damageBonus;
+        firingSpeed -= currentTier.firingSpeedBonus;
+
+
         currentTierInt = newTier;
-        WeaponTier currentTier = weaponTiers.tiers[newTier];
+        currentTier = weaponTiers.tiers[newTier];
+        //add new tier to weaponTiers
+        weaponTiers.currentTier = newTier;
         damage += currentTier.damageBonus;
         firingSpeed += currentTier.firingSpeedBonus;
         transform.localScale = currentTier.gunMeshScale;
         gunMaterialColor = currentTier.gunMaterial;
+
         //tracer effect
         //special effect
     }

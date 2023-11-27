@@ -11,9 +11,18 @@ public class ScrapCounter : MonoBehaviour
     [SerializeField] Upgrader upgrader;
     [SerializeField] RawImage weaponIcon;
     [SerializeField] TextMeshProUGUI weaponName;
+    [SerializeField] TextMeshProUGUI tierNumberText;
     Transform currentWeapon;
-    private int scrapCount = 0;
+    public int scrapCount = 0;
     private int upgradeCost = 0;
+    //savable?
+    public Transform lastWeapon;
+
+    public void Start()
+    {
+        UpdateUIInfo(lastWeapon);
+        UpdateScrapText(0);
+    }
 
     public void UpdateScrapText(int additionalScrap)
     {
@@ -44,6 +53,15 @@ public class ScrapCounter : MonoBehaviour
         //access weapon name via Weapon Tiers
         weaponName.text = GetWeaponName();
         //update UI Icon
+        tierNumberText.text = GetTierNumber().ToString();
+    }
+
+    private object GetTierNumber()
+    {
+        Weapon currentWeaponComponent = currentWeapon.GetComponent<Weapon>();
+        WeaponTiers weaponTiers = currentWeaponComponent.weaponTiers;
+        int currentTier = weaponTiers.currentTier;
+        return currentTier + 1;
     }
 
     private string GetWeaponName()

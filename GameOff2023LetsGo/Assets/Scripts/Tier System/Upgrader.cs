@@ -9,23 +9,27 @@ public class Upgrader : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI HoldQText;
     [SerializeField] WeaponSwitcher weaponSwitcher;
-    public bool canUpgrade;
+    [SerializeField] ScrapCounter scrapCounter;
+    [SerializeField] Image ammoBarImage;
+    [SerializeField] Image ammoBarFillImage;
+    [SerializeField] AudioSource upgradeSFX;
+    [SerializeField] AudioSource upgradeCompleteSFX;
+    [SerializeField] TextMeshProUGUI tierNumberText;
 
+    [HideInInspector]
     public Weapon weapon; // The weapon to upgrade
-    public int playerResources; // The player's resources
+    public bool canUpgrade;
     public GameObject upgradeBar; // The upgrade loading bar
-    public GameObject resourceDisplay; // The resource display
-    public GameObject particleEffect; // The particle effect to display
+    public GameObject particleEffectUpgrading; // The particle effect to display
     public Animator weaponAnimator; // The weapon's animator
 
-    
+    private int playerResources; // The player's resources
     private bool isUpgrading = false;
     private int upgradeCost;
     private int newTier;
 
     void Update()
     {
-        // Step 1: Detect if the player is pressing 'Q' or the 2 button any gamepad 
         if (Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("West")))
         {
             if (canUpgrade)
@@ -53,16 +57,17 @@ public class Upgrader : MonoBehaviour
 
     void StartUpgrade()
     {
+        HoldQText.gameObject.SetActive(false);
         GetCurrentWeapon();
-        //Debug.Log(weapon.name);
-        // Step 2: Check if they have the required cost to enter the new Tier for the currently selected Weapon
+        //Check if they have the required cost to enter the new Tier for the currently selected Weapon
         newTier = weapon.currentTierInt + 1;
 
+        playerResources = scrapCounter.scrapCount;
+        upgradeCost = weapon.weaponTiers.tiers[newTier].costToEnter;
 
         if (playerResources >= upgradeCost)
         {
-            // Step 3: Play an animation on the Weapon
-            //get the WeaponAnimator from the currently active Weapon
+            //Play an animation on the Weapon
             if (isUpgrading == false)
             {
                 weaponAnimator = weapon.GetComponentInChildren<Animator>();
@@ -70,17 +75,10 @@ public class Upgrader : MonoBehaviour
                 isUpgrading = true;
             }
 
-            // Step 4: Display an upgrade loading bar onscreen
-            //upgradeBar.SetActive(true);
-
-            // Step 5: Countdown the resource for the cost to enter ticking down rapidly
-            //resourceDisplay.SetActive(true);
-
-            // Step 6: Disable Shooting while this is occurring
+            upgradeBar.SetActive(true);
             weapon.canShoot = false;
-
-            // Step 8: Display a particle effect
-            //particleEffect.SetActive(true);
+            particleEffectUpgrading.SetActive(true);
+            StartCoroutine("FillUpgradeBar");
         }
     }
 
@@ -93,13 +91,19 @@ public class Upgrader : MonoBehaviour
     {
         if (isUpgrading)
         {
-            // Step 7: Allow cancelling
+            //Allow cancelling
+            StopAllCoroutines();
             weaponAnimator.SetTrigger("exitLoop");
-            //upgradeBar.SetActive(false);
-            //resourceDisplay.SetActive(false);
+            upgradeSFX.Stop();
+            ammoBarImage.enabled = true;
+            ammoBarFillImage.enabled = true;
+            upgradeBar.GetComponentInChildren<Slider>().value = 0.0f;
+            upgradeBar.SetActive(false);
             weapon.canShoot = true;
-            //particleEffect.SetActive(false);
+            particleEffectUpgrading.SetActive(false);
             isUpgrading = false;
+            scrapCounter.UpdateScrapText(0);
+            //denied SFX maybe
         }
     }
 
@@ -107,14 +111,43 @@ public class Upgrader : MonoBehaviour
     {
         if (isUpgrading)
         {
-            // Step 9: And if the loading bar successfully fills up, the public UpgradeWeapon is called on the currently active Weapon script
+            //If the loading bar successfully fills up, the public UpgradeWeapon is called on the currently active Weapon script
             weaponAnimator.SetTrigger("exitLoop");
-            //weapon.UpgradeWeapon(newTier);
-            //upgradeBar.SetActive(false);
-            //resourceDisplay.SetActive(false);
+            upgradeBar.SetActive(false);
             weapon.canShoot = true;
-            //particleEffect.SetActive(false);
+            particleEffectUpgrading.SetActive(false);
+            //SFX for Upgrade Complete
+            upgradeCompleteSFX.Play();
             isUpgrading = false;
+            tierNumberText.text = (newTier + 1).ToString();
+            weapon.UpgradeWeapon(newTier);
+            scrapCounter.UpdateScrapText(-upgradeCost);
         }
     }
+
+    IEnumerator FillUpgradeBar()
+    {
+        ammoBarImage.enabled = false;
+        ammoBarFillImage.enabled = false;
+        Slider slider = upgradeBar.GetComponentInChildren<Slider>();
+        float timeToFill = weapon.weaponTiers.tiers[newTier].timeToUpgrade;
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime < timeToFill)
+        {
+            //play looping sfx
+            if (!upgradeSFX.isPlaying)
+            {
+                upgradeSFX.Play();
+            }
+            elapsedTime += Time.deltaTime;
+            slider.value = Mathf.Lerp(0.0f, 1.0f, elapsedTime / timeToFill);
+            yield return null;
+        }
+        ammoBarImage.enabled = true;
+        ammoBarFillImage.enabled = true;
+        upgradeSFX.Stop();
+        FinishUpgrade();
+    }
+    
 }

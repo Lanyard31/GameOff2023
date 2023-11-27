@@ -13,6 +13,11 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
+        //make sure this is the only one
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
         audioSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(this.gameObject);
     }

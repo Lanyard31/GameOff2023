@@ -4,6 +4,7 @@ using UnityEngine;
 public class WeaponTier
 {
     public int costToEnter;
+    public float timeToUpgrade;
     public float damageBonus;
     public float firingSpeedBonus;
     public Vector3 gunMeshScale;
