@@ -11,7 +11,6 @@ public class TextReader : MonoBehaviour
     [SerializeField] TextMeshProUGUI textDisplay;
     [SerializeField] TextMeshProUGUI textSkip;
     Color originalColor;
-    bool skipText = false;
     float timeElapsed = 0f;
     string text;
 
@@ -35,7 +34,6 @@ public class TextReader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Submit"))
         {
             StopAllCoroutines();
-            skipText = true;
             textDisplay.text = text;
             textSkip.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1);
             textSkip.text = "Loading...";

@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  gearSFX: {fileID: 0}
   animator: {fileID: 7129852486693178143}
+  gearContainerCollider: {fileID: 0}
   movementSpeed: 35
-  gearContainerRB: {fileID: 0}
 --- !u!95 &7129852486693178143
 Animator:
   serializedVersion: 5

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Gear : MonoBehaviour
 {
-    private float rotationSpeed;
     [SerializeField] Rigidbody rb;
-    private float initialForce = 4f;
-
+    [SerializeField] AudioSource gearSFX;
     [SerializeField] Animator animator;
-    private Transform player;
-    bool homingGearActivated = false;
-    public float movementSpeed = 10f;
-    private bool collected = false;
     [SerializeField] SphereCollider gearContainerCollider;
+    public float movementSpeed = 10f;
+    private float initialForce = 4f;
+    private float rotationSpeed;
+    private Transform player;
+    private bool collected = false;
+    bool homingGearActivated = false;
 
 
     private void OnEnable()
@@ -77,8 +77,10 @@ public class Gear : MonoBehaviour
             {
                 homingGearActivated = false;
                 gameObject.SetActive(false);
-                //disable parent?
-                //SFX
+                //randomize Pitch
+                gearSFX.pitch = Random.Range(0.85f, 1.1f);
+                //Play as One Shot
+                gearSFX.PlayOneShot(gearSFX.clip);
             }
         }
     }
