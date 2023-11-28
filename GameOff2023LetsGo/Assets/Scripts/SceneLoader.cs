@@ -8,8 +8,8 @@ public class SceneLoader : MonoBehaviour
 
     public void ReloadGame()
     {
-        //reloads current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //reloads current scene
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;

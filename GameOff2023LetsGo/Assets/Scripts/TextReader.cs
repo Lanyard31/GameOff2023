@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-
 public class TextReader : MonoBehaviour
 {
     [SerializeField] float lengthOfVoiceRecording = 20f;
     [SerializeField] TextMeshProUGUI textDisplay;
     [SerializeField] TextMeshProUGUI textSkip;
+
     Color originalColor;
-    float timeElapsed = 0f;
     string text;
 
     void Start()
