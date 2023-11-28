@@ -7,6 +7,7 @@ public class WeaponTier
     public float timeToUpgrade;
     public float damageBonus;
     public float firingSpeedBonus;
+    public int maxAmmoBonus;
     public Vector3 gunMeshScale;
     public Material gunMaterial;
     public GameObject tracerParticleEffect;

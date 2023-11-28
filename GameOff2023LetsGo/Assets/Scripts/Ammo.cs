@@ -20,6 +20,11 @@ public class Ammo : MonoBehaviour
         return GetAmmoSlot(ammoType).ammoAmount;
     }
 
+    public void  SetMaxAmmo(AmmoType ammoType, int newMaxAmmo)
+    {
+        GetAmmoSlot(ammoType).maxAmmo = newMaxAmmo;
+    }
+
     public int GetMaxAmmo(AmmoType ammoType)
     {
         return GetAmmoSlot(ammoType).maxAmmo;

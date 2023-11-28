@@ -19,6 +19,7 @@ MonoBehaviour:
     timeToUpgrade: 0
     damageBonus: 0
     firingSpeedBonus: 0
+    maxAmmoBonus: 0
     gunMeshScale: {x: 1, y: 1, z: 1}
     gunMaterial: {fileID: 2100000, guid: 1c2ce66a8982dc24d9f5afba85e232a1, type: 2}
     tracerParticleEffect: {fileID: 0}
@@ -27,30 +28,34 @@ MonoBehaviour:
     timeToUpgrade: 3
     damageBonus: 2
     firingSpeedBonus: 0.02
+    maxAmmoBonus: 10
     gunMeshScale: {x: 1.05, y: 1.05, z: 1.05}
     gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
     tracerParticleEffect: {fileID: 0}
     specialEffect: {fileID: 0}
-  - costToEnter: 128
-    timeToUpgrade: 5
+  - costToEnter: 12
+    timeToUpgrade: 6
     damageBonus: 4
     firingSpeedBonus: 0.04
+    maxAmmoBonus: 20
     gunMeshScale: {x: 1.1, y: 1.1, z: 1.1}
     gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
     tracerParticleEffect: {fileID: 0}
     specialEffect: {fileID: 0}
-  - costToEnter: 222
-    timeToUpgrade: 7
+  - costToEnter: 26
+    timeToUpgrade: 8
     damageBonus: 6
     firingSpeedBonus: 0.06
+    maxAmmoBonus: 30
     gunMeshScale: {x: 1.15, y: 1.15, z: 1.15}
     gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
     tracerParticleEffect: {fileID: 0}
     specialEffect: {fileID: 0}
-  - costToEnter: 346
-    timeToUpgrade: 9
+  - costToEnter: 42
+    timeToUpgrade: 10
     damageBonus: 8
     firingSpeedBonus: 0.1
+    maxAmmoBonus: 40
     gunMeshScale: {x: 1.15, y: 1.15, z: 1.15}
     gunMaterial: {fileID: 2100000, guid: 71f976be413bb8a4a84d3b958f9a1469, type: 2}
     tracerParticleEffect: {fileID: 0}

@@ -21,9 +21,9 @@ public class HealthCounter : MonoBehaviour
         // Lerps the Slider value to the new value
         float t = 0.0f;
         float currentHealth = healthSlider.value;
-        while (t < 0.5f)
+        while (t < 1.0f)
         {
-            t += Time.deltaTime;
+            t += Time.deltaTime * 10;
             healthSlider.value = Mathf.Lerp(currentHealth, normalizedHitPoints, t);
             yield return null;
         }

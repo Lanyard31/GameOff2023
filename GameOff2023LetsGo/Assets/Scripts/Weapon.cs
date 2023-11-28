@@ -61,13 +61,6 @@ public class Weapon : MonoBehaviour
                 laserTracer.SetActive(true);
                 laserTracer.GetComponent<DisableSelf>().timeUntilDisable = 0.2f;
             }
-            else
-            {
-                laserTracer.SetActive(true);
-                //get particle subsytem and make it play
-                var laserTracerParticles = laserTracer.GetComponent<ParticleSystem>();
-                laserTracerParticles.Play();
-            }
             // Check if enough time has passed since the last shot
             if (Time.time - shootTimer >= firingSpeed)
             {
@@ -137,7 +130,10 @@ public class Weapon : MonoBehaviour
 
     private void PlayMuzzleFlash()
     {
-        muzzleFlash.Play();
+        if (!muzzleFlash.isPlaying)
+        {
+            muzzleFlash.Play();
+        }
     }
 
     private void ProcessRaycast()
@@ -215,6 +211,10 @@ public class Weapon : MonoBehaviour
         firingSpeed += currentTier.firingSpeedBonus;
         transform.localScale = currentTier.gunMeshScale;
         gunMaterialColor = currentTier.gunMaterial;
+        //sets ammo to new max Ammo
+        ammoSlot.SetMaxAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType) + currentTier.maxAmmoBonus));
+        ammoSlot.SetCurrentAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType)));
+
 
         //tracer effect
         //special effect

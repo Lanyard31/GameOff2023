@@ -28,6 +28,10 @@ public class ScrapCounter : MonoBehaviour
     {
         scrapCount += additionalScrap;
         upgradeCost = GetUpgradeCost();
+        if (upgradeCost == 999)
+        {
+            return;
+        }
 
         float scrapCountFloat = scrapCount / 10.0f;
         float upgradeCostFloat = upgradeCost / 10.0f;
@@ -76,9 +80,26 @@ public class ScrapCounter : MonoBehaviour
         Weapon currentWeaponComponent = currentWeapon.GetComponent<Weapon>();
         WeaponTiers weaponTiers = currentWeaponComponent.weaponTiers;
         int currentTier = weaponTiers.currentTier;
+
+        // Check if this is the max tier
+        if (currentTier >= weaponTiers.tiers.Length - 1)
+        {
+            // This is the max tier, initiate different behavior
+            // For example, return a specific value
+            SetMaxTierUI();
+            return 999;
+        }
+
         WeaponTier nexttier = weaponTiers.tiers[currentTier + 1];
 
         return nexttier.costToEnter;
+    }
+
+    private void SetMaxTierUI()
+    {
+        tierNumberText.text = "MAX";
+        scrapText.text = "MAX";
+        upgrader.DisableUpgradeButton();
     }
 
     private Texture GetWeaponIcon()

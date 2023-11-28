@@ -20,7 +20,9 @@ public class ObjectPool : MonoBehaviour
 
         for (int i = 0; i < poolSize; i++)
         {
+            //parented here so that the hierarchy doesn't get cluttered
             GameObject obj = Instantiate(prefab);
+            obj.transform.parent = transform;
             obj.SetActive(false);
             pool.Add(obj);
         }
@@ -37,6 +39,7 @@ public class ObjectPool : MonoBehaviour
         }
 
         GameObject newObj = Instantiate(prefab);
+        newObj.transform.parent = transform;
         newObj.SetActive(false);
         pool.Add(newObj);
 
