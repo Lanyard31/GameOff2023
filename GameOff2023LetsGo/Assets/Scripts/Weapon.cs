@@ -35,11 +35,15 @@ public class Weapon : MonoBehaviour
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
+    float originalDamage;
+    float originalFiringSpeed;
     bool canShootSingle = true;
 
     private void Start()
     {
         //load the data
+        originalDamage = damage;
+        originalFiringSpeed = firingSpeed;
         currentTierInt = weaponTiers.currentTier;
         UpgradeWeapon(currentTierInt);
     }
@@ -199,26 +203,25 @@ public class Weapon : MonoBehaviour
 
     public void UpgradeWeapon(int newTier)
     {
-        //first subtract all the bonuses from the current tier
         WeaponTier currentTier = weaponTiers.tiers[currentTierInt];
-        damage -= currentTier.damageBonus;
-        firingSpeed -= currentTier.firingSpeedBonus;
-
-
         currentTierInt = newTier;
         currentTier = weaponTiers.tiers[newTier];
         //add new tier to weaponTiers
         weaponTiers.currentTier = newTier;
-        damage += currentTier.damageBonus;
-        firingSpeed += currentTier.firingSpeedBonus;
+        damage = originalDamage + currentTier.damageBonus;
+        firingSpeed = originalFiringSpeed + currentTier.firingSpeedBonus;
         transform.localScale = currentTier.gunMeshScale;
         gunMaterialColor = currentTier.gunMaterial;
         //sets ammo to new max Ammo
         ammoSlot.SetMaxAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType) + currentTier.maxAmmoBonus));
         ammoSlot.SetCurrentAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType)));
 
+        Debug.Log("current tier is " + currentTierInt);
+        Debug.Log("new tier is " + newTier);
+        Debug.Log("current tier damage bonus is " + currentTier.damageBonus);
+        Debug.Log("damage is " + damage);
 
-        //tracer effect
-        //special effect
+        //tracer effect?
+        //special effect?
     }
 }
