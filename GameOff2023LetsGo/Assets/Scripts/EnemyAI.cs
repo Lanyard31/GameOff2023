@@ -14,7 +14,6 @@ public class EnemyAI : MonoBehaviour
     bool isProvoked = false;
     EnemyHealth enemyHealth;
     Transform target;
-    [SerializeField] Outline outline;
 
 
     void Start()

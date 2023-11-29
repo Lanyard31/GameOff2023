@@ -96,7 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRange: 28
   turnSpeed: 5
-  outline: {fileID: 5627883015488296797}
 --- !u!114 &6686408380335465323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +115,7 @@ MonoBehaviour:
   - {fileID: 1620539796366044, guid: 3c468852f3a2cd24b8f28b016f941eae, type: 3}
   gearPool: {fileID: 0}
   gearsToAdd: 3
+  hitFlash: {fileID: 7577667785501704529}
   isDead: 0
 --- !u!114 &7707840371791979091
 MonoBehaviour:
@@ -521,7 +521,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1362343800518574872}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5627883015488296797
+--- !u!114 &7577667785501704529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,12 +530,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5740028775039444756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b66922f0ac6492478fd819224435b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0.37254903, g: 0.6313726, b: 0.9058824, a: 0.6666667}
-  outlineWidth: 0.8
-  precomputeOutline: 1
-  bakeKeys: []
-  bakeValues: []
+  hitMaterial: {fileID: 2100000, guid: 2d5a0ba2fb55d2e468462f139f8e1394, type: 2}

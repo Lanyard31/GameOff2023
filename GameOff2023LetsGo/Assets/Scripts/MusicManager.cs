@@ -4,76 +4,72 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    AudioSource audioSource;
+    private AudioSource audioSource;
     [Tooltip("Add all music tracks here")]
     [SerializeField] AudioClip[] music;
-    [SerializeField] AudioClip lastTrack;
+    int currentTrackIndex = 0;
 
-    bool firstTimeComplete = false;
-
-    void Start()
+    private void Start()
     {
-        //make sure this is the only one
+        // Make sure this is the only one
         if (FindObjectsOfType(GetType()).Length > 1)
         {
             Destroy(gameObject);
         }
+
         audioSource = GetComponent<AudioSource>();
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
+    private void Update()
     {
-        //hitting M toggles the Mute for music
+        // Hitting M toggles the mute for music
         if (Input.GetKeyDown(KeyCode.M))
         {
             audioSource.mute = !audioSource.mute;
         }
-
-        //hitting N calls the SwitchTrack function
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            SwitchTrack();
-        }
-
-        //if the music is not playing, it switches the track
-        if (!audioSource.isPlaying)
-        {
-            SwitchTrack();
-        }
     }
 
-    private void SwitchTrack()
+    // Call this function when the player completes the level
+    public void LevelCompleted()
     {
-        if (firstTimeComplete)
-        {
-            // Play a random track from the music array
-            FindNewTrack();
-            audioSource.Play();
-        }
-        else
-        {
-            audioSource.Play();
-            firstTimeComplete = true;
-        }
+        StartCoroutine(FadeOutAndSwitchTrack());
     }
 
-    private void FindNewTrack()
+    private IEnumerator FadeOutAndSwitchTrack()
     {
-        lastTrack = audioSource.clip;
-        if (lastTrack != null)
+        // Fade out the volume
+        while (audioSource.volume > 0.01f)
         {
-            audioSource.clip = music[Random.Range(0, music.Length)];
-            //this makes sure the same track doesn't play twice in a row
-            while (audioSource.clip == lastTrack)
-            {
-                audioSource.clip = music[Random.Range(0, music.Length)];
-            }
+            audioSource.volume = Mathf.Lerp(audioSource.volume, 0f, Time.deltaTime);
+            yield return null;
         }
-        else
+        //set it equal to 0.01f to avoid any weirdness
+        audioSource.volume = 0.001f;
+
+        // Pause for a moment
+        yield return new WaitForSeconds(1.85f);
+
+        // Queue up the next track
+        PlayNextTrack();
+
+        // The volume should lerp up here, right here
+        while (audioSource.volume < 1.0f)
         {
-            audioSource.clip = music[Random.Range(0, music.Length)];
+            audioSource.volume = Mathf.Lerp(audioSource.volume, 1.0f, Time.deltaTime);
+            yield return null;
         }
-        //lastTrack = audioSource.clip;
+        //set it equal to 1.0f to avoid any weirdness
+        audioSource.volume = 1.0f;
+    }
+
+    private void PlayNextTrack()
+    {
+        // Get and play the very next track in the music array
+        int nextTrackIndex = (currentTrackIndex + 1) % music.Length;
+        audioSource.clip = music[nextTrackIndex];
+        Debug.Log("Playing track " + nextTrackIndex);
+        audioSource.Play();
+        currentTrackIndex = nextTrackIndex;
     }
 }

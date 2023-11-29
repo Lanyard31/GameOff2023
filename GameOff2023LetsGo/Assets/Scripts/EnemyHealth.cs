@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] GameObject[] explosions;
     [SerializeField] ObjectPool gearPool;
     [SerializeField] int gearsToAdd = 3;
+    [SerializeField] HitFlash hitFlash;
 
     public bool isDead = false;
 
@@ -21,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     {
         BroadcastMessage("OnDamageTaken");
         hitPoints = hitPoints - damage;
+        hitFlash.EnemyHitFlash();
         if (hitPoints <= 0)
         {
             Die();

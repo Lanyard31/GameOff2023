@@ -25,17 +25,17 @@ public class Weapon : MonoBehaviour
     [SerializeField] float recoilTimer;
     [SerializeField] float recoilAmount = 0.1f;
     [SerializeField] GameObject laserTracer;
+    [SerializeField] AudioSource weaponIsEmptySFX;
+    [SerializeField] Material gunMaterialColor;
 
     public WeaponTiers weaponTiers;
-    [SerializeField] Material gunMaterialColor;
     public int currentTierInt;
+    public bool canShoot = true;
+    public bool laser = false;
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
-
-    public bool canShoot = true;
     bool canShootSingle = true;
-    public bool laser = false;
 
     private void Start()
     {
@@ -98,6 +98,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
+            weaponIsEmptySFX.Play();
             ammoSlot.SetCurrentAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType)));
             weaponSwitcher.NextWeapon();
         }
@@ -116,6 +117,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
+            weaponIsEmptySFX.Play();
             ammoSlot.SetCurrentAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType)));
             weaponSwitcher.NextWeapon();
         }

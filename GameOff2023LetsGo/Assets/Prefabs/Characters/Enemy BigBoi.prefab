@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6686408380335465323}
   - component: {fileID: 7707840371791979091}
   - component: {fileID: 7080639758412433737}
+  - component: {fileID: 4083353318300921340}
   - component: {fileID: 545121410421055866}
-  - component: {fileID: 531946020011485871}
   m_Layer: 0
   m_Name: Enemy BigBoi
   m_TagString: Untagged
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRange: 28
   turnSpeed: 5
-  outline: {fileID: 531946020011485871}
 --- !u!114 &6686408380335465323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +116,7 @@ MonoBehaviour:
   - {fileID: 1620539796366044, guid: 3c468852f3a2cd24b8f28b016f941eae, type: 3}
   gearPool: {fileID: 0}
   gearsToAdd: 7
+  hitFlash: {fileID: 4083353318300921340}
   isDead: 0
 --- !u!114 &7707840371791979091
 MonoBehaviour:
@@ -145,6 +145,19 @@ CapsuleCollider:
   m_Height: 2.5813303
   m_Direction: 0
   m_Center: {x: 0.024974346, y: 0.590655, z: 0}
+--- !u!114 &4083353318300921340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440906733662411313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b66922f0ac6492478fd819224435b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMaterial: {fileID: 2100000, guid: 2d5a0ba2fb55d2e468462f139f8e1394, type: 2}
 --- !u!82 &545121410421055866
 AudioSource:
   m_ObjectHideFlags: 0
@@ -250,24 +263,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &531946020011485871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440906733662411313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0.37254903, g: 0.6313726, b: 0.9058824, a: 0.6666667}
-  outlineWidth: 0.8
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &5480112659894487320
 PrefabInstance:
   m_ObjectHideFlags: 0

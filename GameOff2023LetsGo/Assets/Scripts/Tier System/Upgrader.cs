@@ -15,6 +15,7 @@ public class Upgrader : MonoBehaviour
     [SerializeField] AudioSource upgradeSFX;
     [SerializeField] AudioSource upgradeCompleteSFX;
     [SerializeField] TextMeshProUGUI tierNumberText;
+    [SerializeField] TextMeshProUGUI AmmoText;
 
     [HideInInspector]
     public Weapon weapon; // The weapon to upgrade
@@ -78,6 +79,7 @@ public class Upgrader : MonoBehaviour
             upgradeBar.SetActive(true);
             weapon.canShoot = false;
             particleEffectUpgrading.SetActive(true);
+            AmmoText.text = "Upgrading";
             StartCoroutine("FillUpgradeBar");
         }
     }
@@ -103,6 +105,7 @@ public class Upgrader : MonoBehaviour
             particleEffectUpgrading.SetActive(false);
             isUpgrading = false;
             scrapCounter.UpdateScrapText(0);
+            AmmoText.text = "Ammo";
             //denied SFX maybe
         }
     }
@@ -122,6 +125,7 @@ public class Upgrader : MonoBehaviour
             tierNumberText.text = (newTier + 1).ToString();
             weapon.UpgradeWeapon(newTier);
             scrapCounter.UpdateScrapText(-upgradeCost);
+            AmmoText.text = "Ammo";
         }
     }
 

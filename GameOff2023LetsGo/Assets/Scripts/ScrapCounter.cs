@@ -97,7 +97,7 @@ public class ScrapCounter : MonoBehaviour
 
     private void SetMaxTierUI()
     {
-        tierNumberText.text = "MAX";
+        tierNumberText.text = "∞";
         scrapText.text = "MAX";
         upgrader.DisableUpgradeButton();
     }
