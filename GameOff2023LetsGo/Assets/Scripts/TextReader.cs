@@ -12,6 +12,7 @@ public class TextReader : MonoBehaviour
 
     Color originalColor;
     string text;
+    public bool closingScreen = false;
 
     void Start()
     {
@@ -29,6 +30,10 @@ public class TextReader : MonoBehaviour
 
     void Update()
     {
+        if (closingScreen)
+        {
+            return;
+        }
         //If the player presses the spacebar or hits Start on their Gamepad, load all the text, and then load the next scene
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Submit"))
         {
@@ -49,6 +54,10 @@ public class TextReader : MonoBehaviour
         {
             textDisplay.text += letter;
             yield return new WaitForSeconds(timeToWait);
+        }
+        if (closingScreen)
+        {
+            yield break;
         }
         textSkip.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1);
         textSkip.text = "Loading...";

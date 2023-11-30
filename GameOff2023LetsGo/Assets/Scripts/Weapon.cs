@@ -216,11 +216,6 @@ public class Weapon : MonoBehaviour
         ammoSlot.SetMaxAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType) + currentTier.maxAmmoBonus));
         ammoSlot.SetCurrentAmmo(ammoType, (ammoSlot.GetMaxAmmo(ammoType)));
 
-        Debug.Log("current tier is " + currentTierInt);
-        Debug.Log("new tier is " + newTier);
-        Debug.Log("current tier damage bonus is " + currentTier.damageBonus);
-        Debug.Log("damage is " + damage);
-
         //tracer effect?
         //special effect?
     }

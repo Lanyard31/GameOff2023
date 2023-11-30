@@ -4,21 +4,37 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public static MusicManager Instance { get; private set; }
+
     [Tooltip("Add all music tracks here")]
     [SerializeField] AudioClip[] music;
+    private AudioSource audioSource;
     int currentTrackIndex = 0;
+
+    private void Awake()
+    {
+        ThereCanOnlyBeOne();
+    }
 
     private void Start()
     {
-        // Make sure this is the only one
-        if (FindObjectsOfType(GetType()).Length > 1)
-        {
-            Destroy(gameObject);
-        }
-
         audioSource = GetComponent<AudioSource>();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void ThereCanOnlyBeOne()
+    {
+        if (Instance == null)
+        {
+            // This is the first instance, make it the Singleton.
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            // This is not the first instance, destroy it.
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -33,6 +49,7 @@ public class MusicManager : MonoBehaviour
     // Call this function when the player completes the level
     public void LevelCompleted()
     {
+        StopAllCoroutines();
         StartCoroutine(FadeOutAndSwitchTrack());
     }
 
@@ -61,15 +78,26 @@ public class MusicManager : MonoBehaviour
         }
         //set it equal to 1.0f to avoid any weirdness
         audioSource.volume = 1.0f;
+        yield return null;
     }
 
     private void PlayNextTrack()
     {
-        // Get and play the very next track in the music array
-        int nextTrackIndex = (currentTrackIndex + 1) % music.Length;
+        // Get the index of the next track in the music array
+        int nextTrackIndex = currentTrackIndex + 1;
+
+        // If it's the last track, don't play anything next
+        if (nextTrackIndex >= music.Length)
+        {
+            return;
+        }
+
+        // Play the next track
         audioSource.clip = music[nextTrackIndex];
         Debug.Log("Playing track " + nextTrackIndex);
         audioSource.Play();
+
+        // Update the current track index
         currentTrackIndex = nextTrackIndex;
     }
 }

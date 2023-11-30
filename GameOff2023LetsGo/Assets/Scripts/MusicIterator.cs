@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class MusicIterator : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Awake is called when the script instance is being loaded
     void Start()
     {
-        //Find the music manager
-        GameObject musicManager = GameObject.FindObjectOfType<MusicManager>().gameObject;
-        //check null
+        // Find the music manager
+        MusicManager musicManager = MusicManager.Instance;
+
+        // Check null
         if (musicManager != null)
         {
-            //call the level completed method
-            musicManager.GetComponent<MusicManager>().LevelCompleted();
+            // Call the level completed method
+            musicManager.LevelCompleted();
         }
     }
 }

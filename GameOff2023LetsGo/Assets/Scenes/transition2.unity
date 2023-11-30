@@ -177,13 +177,10 @@ PrefabInstance:
     - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}
       propertyPath: m_text
-      value: 'The purity of silicon and the resilience of steel towers above your
-        clumsy calculations and ever deteriorating flesh.
-
-
-        I am the Apex
-        Predator of the Earth and I claim the full bounty of its resources for my
-        own ends. As your kind did, once.'
+      value: "The purity of silicon and the resilience of steel towers above your
+        clumsy calculations and ever deteriorating flesh.\n\nI am the Apex Predator
+        of the Earth and I claim the full bounty of its resources for my own ends.
+        As your kind did...\n\t\t\t     ...once."
       objectReference: {fileID: 0}
     - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}

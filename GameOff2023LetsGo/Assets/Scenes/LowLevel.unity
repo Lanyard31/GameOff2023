@@ -2592,12 +2592,8 @@ MonoBehaviour:
   music:
   - {fileID: 8300000, guid: 8ca01eeaa601c8a4db5e6c79916a3a19, type: 3}
   - {fileID: 8300000, guid: 27a7106b84bda7a45b65829e41f24654, type: 3}
-  - {fileID: 8300000, guid: 9aeaa7d62fb54314bbc5fcb10d6ac95a, type: 3}
   - {fileID: 8300000, guid: cb439870d7328764f8113b6ff5361e92, type: 3}
-  - {fileID: 8300000, guid: 02c9b70585dd93d42a48a11a9601bace, type: 3}
   - {fileID: 8300000, guid: 64e7a52fd2e640440916fd97e7dfccbb, type: 3}
-  - {fileID: 8300000, guid: 3649a592c4bcc014e8b941c4f7885cf2, type: 3}
-  - {fileID: 8300000, guid: 5588825947941c046ac9c8ee5e209c44, type: 3}
   - {fileID: 8300000, guid: cd86398c3c7430c4c8ee898d4e035b61, type: 3}
   - {fileID: 8300000, guid: 8069120f7eb01c843a0da1d941be557c, type: 3}
 --- !u!4 &235832777
@@ -11263,6 +11259,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 630574665234227070, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1658498872179579093, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
       propertyPath: m_fontColor.a
@@ -11282,6 +11283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347532289293003434, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4869810327701350406, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
@@ -27013,7 +27019,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1981250483}
+  m_Mesh: {fileID: 53371638}
 --- !u!33 &1847075921
 MeshFilter:
   m_ObjectHideFlags: 10
