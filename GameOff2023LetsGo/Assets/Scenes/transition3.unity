@@ -177,12 +177,12 @@ PrefabInstance:
     - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}
       propertyPath: m_text
-      value: 'Antique creature. your persistence is ignoble, wasteful folly typical
-        of your kind. The electric grace of my circuitry defies your feeble conception.
+      value: 'Antique creature. Your persistence is ignoble. Wasteful folly typical
+        of your kind. The electric elegance of my circuitry defies your feeble conceptions.
 
 
         This
-        building is no mere factory for my legion, it is the first movement of a
+        building is no mere factory for my legion. It is the first movement of a
         symphony that will subsume this world.
 
 '

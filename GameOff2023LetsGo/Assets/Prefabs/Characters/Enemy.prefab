@@ -81,7 +81,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &1440906733662411318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af9af894aa01d54a8a7c0f049204880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 28
+  chaseRange: 25
   turnSpeed: 5
 --- !u!114 &6686408380335465323
 MonoBehaviour:

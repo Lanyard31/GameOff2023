@@ -11,8 +11,8 @@ public class DeathHandler : MonoBehaviour
     [SerializeField] Slider healthSlider;
     [SerializeField] GameObject weaponsHiearchyParent;
     [SerializeField] HealthCounter healthCounter;
+    [SerializeField] AudioSource audioSource;
     FirstPersonController firstPersonController;
-
 
     private void Start()
     {
@@ -31,6 +31,7 @@ public class DeathHandler : MonoBehaviour
         healthCounter.StopAllCoroutines();
         SetHealthToZero();
         gameOverCanvas.SetActive(true);
+        audioSource.Play();
         firstPersonController.enabled = false;
         Time.timeScale = 0;
         FindObjectOfType<WeaponSwitcher>().enabled = false;

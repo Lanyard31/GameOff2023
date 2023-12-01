@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8759969935531904109}
   - component: {fileID: 2602203510488805076}
   - component: {fileID: 4318904807781862699}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GearContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.6
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Center: {x: 0, y: 0.28, z: 0}
 --- !u!114 &4318904807781862699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4420996892107726291}
   - component: {fileID: 8881396346488535228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,6 +293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8789830192734580025, guid: 35fb100e01678414f89da1afc4810e01,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5374283446814279592, guid: 35fb100e01678414f89da1afc4810e01, type: 3}

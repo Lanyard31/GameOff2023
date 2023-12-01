@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &126769140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 126769142}
+  - component: {fileID: 126769141}
+  m_Layer: 0
+  m_Name: UncaptureMouse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &126769141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126769140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b812428cd807332449e62263ba960ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &126769142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126769140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &366048097
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,16 +223,80 @@ PrefabInstance:
       propertyPath: m_text
       value: '- Thanks For Playing! - '
       objectReference: {fileID: 0}
+    - target: {fileID: 1878348186472542725, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f40830eb7ac5a44e9f6fdce85299207,
+        type: 2}
+    - target: {fileID: 1878348186472542725, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878348186472542725, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.854902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878348186472542725, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.52156866
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878348186472542725, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5796209657817311782, guid: 8f40830eb7ac5a44e9f6fdce85299207,
+        type: 2}
+    - target: {fileID: 1878348186472542725, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293646981
+      objectReference: {fileID: 0}
     - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}
       propertyPath: m_text
-      value: "At Last...\n\nThe Evil Sentient Machine Has Been Destroyed.\n\nHumanity
+      value: "At Last...\n\nThe Infernal Machine Has Been Destroyed.\n\nHumanity
         is Free Again.\n\n\nAt least...\n                       ...for now."
       objectReference: {fileID: 0}
     - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f40830eb7ac5a44e9f6fdce85299207,
+        type: 2}
+    - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
       propertyPath: m_fontStyle
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.854902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.52156866
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5796209657817311782, guid: 8f40830eb7ac5a44e9f6fdce85299207,
+        type: 2}
+    - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4293646981
       objectReference: {fileID: 0}
     - target: {fileID: 6774610931266793249, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}

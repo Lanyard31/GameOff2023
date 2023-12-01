@@ -53,7 +53,7 @@ MonoBehaviour:
   range: 100
   damage: 10
   muzzleFlash: {fileID: 7389674524056926107}
-  hitVFX: {fileID: 4546407064922017569, guid: a4e7dceee3c8d2d4fbf489264c13a27f, type: 3}
+  hitVFX: {fileID: 8965784847588675356, guid: 948a9674a9d03684a8a8f1b9f4c47022, type: 3}
   ammoSlot: {fileID: 0}
   ammoType: 1
   automaticFire: 1
@@ -70,8 +70,9 @@ MonoBehaviour:
   recoilTimer: 0.6
   recoilAmount: 0.4
   laserTracer: {fileID: 0}
-  weaponTiers: {fileID: 0}
+  weaponIsEmptySFX: {fileID: 0}
   gunMaterialColor: {fileID: 0}
+  weaponTiers: {fileID: 0}
   currentTierInt: 0
   canShoot: 1
   laser: 0

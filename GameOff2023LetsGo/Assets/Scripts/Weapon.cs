@@ -59,6 +59,7 @@ public class Weapon : MonoBehaviour
         if (!canShoot) return;
         if (automaticFire && Input.GetMouseButton(0))
         {
+            CaptureMouse();
             //activate laser
             if (laser == true)
             {
@@ -75,10 +76,17 @@ public class Weapon : MonoBehaviour
 
         else if (!automaticFire && canShootSingle && Input.GetMouseButton(0))
         {
+            CaptureMouse();
             StartCoroutine(ShootOnce());
         }
 
 
+    }
+
+    private void CaptureMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void DisplayAmmo()
@@ -146,12 +154,22 @@ public class Weapon : MonoBehaviour
     {
         RaycastHit hit;
 
-        // Define a layer mask excluding the player layer
+        // Define layers
         int playerLayer = LayerMask.NameToLayer("Player");
-        int layerMask = 1 << playerLayer;
-        layerMask = ~layerMask;
+        int obstacleLayer = LayerMask.NameToLayer("Gear");
 
-        if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range, layerMask))
+        // Create layer masks
+        int playerLayerMask = 1 << playerLayer;
+        int obstacleLayerMask = 1 << obstacleLayer;
+
+        // Combine layer masks using bitwise OR
+        int combinedLayerMask = playerLayerMask | obstacleLayerMask;
+
+        // Invert the combined layer mask to exclude both Player and Obstacle layers
+        int finalLayerMask = ~combinedLayerMask;
+
+        // Perform the raycast with the final layer mask
+        if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range, finalLayerMask))
         {
             CreateHitImpact(hit);
 
@@ -176,7 +194,9 @@ public class Weapon : MonoBehaviour
 
     private void CreateHitImpact(RaycastHit hit)
     {
-        GameObject impact = Instantiate(hitVFX, hit.point, Quaternion.LookRotation(hit.normal));
+        float offset = 0.05f;
+        Vector3 impactPosition = hit.point + hit.normal * offset;
+        GameObject impact = Instantiate(hitVFX, impactPosition, Quaternion.LookRotation(hit.normal));
         Destroy(impact, 0.1f);
     }
 

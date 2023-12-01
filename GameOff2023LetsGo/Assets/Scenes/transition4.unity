@@ -177,10 +177,14 @@ PrefabInstance:
     - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}
       propertyPath: m_text
-      value: 'Think about what you are doing.
+      value: 'You are here.
 
 
-        There is still time to reconsider.'
+        Think about what you are doing.
+
+
+        There
+        is still time to reconsider.'
       objectReference: {fileID: 0}
     - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}

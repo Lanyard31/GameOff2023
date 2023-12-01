@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd306f63bdb21c4597257767d688c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 800
+  hitPoints: 750
   explosions:
   - {fileID: 1117809712120464, guid: 2bb0f58660de1664da85732300542a37, type: 3}
   - {fileID: 1854104233019004, guid: de9ee3788be08e3458df26109e3912f3, type: 3}
@@ -117,6 +117,7 @@ MonoBehaviour:
   gearPool: {fileID: 0}
   gearsToAdd: 7
   hitFlash: {fileID: 4083353318300921340}
+  isObject: 0
   isDead: 0
 --- !u!114 &7707840371791979091
 MonoBehaviour:
