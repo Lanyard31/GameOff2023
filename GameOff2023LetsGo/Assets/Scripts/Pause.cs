@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Pause : MonoBehaviour
 {
-    private bool isPaused = false;
+    
+    [SerializeField] FirstPersonController firstPersonController;
+    [SerializeField] Canvas pauseCanvas;
+    //is read by the Weapons
+    public bool isPaused = false;
 
     void Update()
     {
@@ -17,6 +24,11 @@ public class Pause : MonoBehaviour
     void TogglePause()
     {
         isPaused = !isPaused;
+        firstPersonController.isPaused = isPaused;
+        pauseCanvas.enabled = isPaused;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
 
         if (isPaused)
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +33,7 @@ public class Weapon : MonoBehaviour
     public int currentTierInt;
     public bool canShoot = true;
     public bool laser = false;
+    private Pause pause;
 
     float shootTimer = 0.0f;
     float firingSpeed = 0.1f;
@@ -42,6 +44,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         //load the data
+        pause = FindObjectOfType<Pause>();
         originalDamage = damage;
         originalFiringSpeed = firingSpeed;
         currentTierInt = weaponTiers.currentTier;
@@ -55,6 +58,8 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        if (pause.isPaused == true) return;
+
         DisplayAmmo();
         if (!canShoot) return;
         if (automaticFire && Input.GetMouseButton(0))
