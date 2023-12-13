@@ -26,17 +26,18 @@ public class Pause : MonoBehaviour
         isPaused = !isPaused;
         firstPersonController.isPaused = isPaused;
         pauseCanvas.enabled = isPaused;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
 
         if (isPaused)
         {
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
             Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }

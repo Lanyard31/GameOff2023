@@ -154,7 +154,8 @@ AudioSource:
   m_GameObject: {fileID: 1440906733662411313}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4318211049361072454, guid: 07c2a27d5b013194190b04a4487ed0f5,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: b14dc8ec84acd3545be6651562ac7886, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.55
@@ -166,7 +167,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 28
+  MaxDistance: 32
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -185,13 +186,13 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5596871
-      value: 0.5641663
-      inSlope: -2.1613941
-      outSlope: -2.1613941
+      time: 0.72117084
+      value: 0.5779145
+      inSlope: -1.88369
+      outSlope: -1.88369
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.17736429
+      inWeight: 0.10428615
       outWeight: 0.11783221
     - serializedVersion: 3
       time: 1

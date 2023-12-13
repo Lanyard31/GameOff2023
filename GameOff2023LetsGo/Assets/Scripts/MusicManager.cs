@@ -94,7 +94,7 @@ public class MusicManager : MonoBehaviour
 
         // Play the next track
         audioSource.clip = music[nextTrackIndex];
-        Debug.Log("Playing track " + nextTrackIndex);
+        //Debug.Log("Playing track " + nextTrackIndex);
         audioSource.Play();
 
         // Update the current track index
