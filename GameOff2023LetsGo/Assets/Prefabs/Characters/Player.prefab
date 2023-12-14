@@ -27555,6 +27555,11 @@ PrefabInstance:
       propertyPath: scrapCounter
       value: 
       objectReference: {fileID: 3003885010515345799}
+    - target: {fileID: 6433723054770834028, guid: 0946d5b35ab761d489ac024256cf3e8f,
+        type: 3}
+      propertyPath: weaponSwitcher
+      value: 
+      objectReference: {fileID: 8374646002196293460}
     - target: {fileID: 7059516783734977921, guid: 0946d5b35ab761d489ac024256cf3e8f,
         type: 3}
       propertyPath: m_RootOrder
@@ -27989,7 +27994,7 @@ PrefabInstance:
     - target: {fileID: 1740910960621886844, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2311678869599923331, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}

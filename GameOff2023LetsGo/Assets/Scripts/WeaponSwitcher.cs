@@ -20,6 +20,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     void Start()
     {
+        currentWeapon = PlayerPrefs.GetInt("LastWeapon");
         SetWeaponActive();
     }
 

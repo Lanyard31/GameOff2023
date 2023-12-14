@@ -23,6 +23,7 @@ public class Exit : MonoBehaviour
             //save all data
             saveData.SaveScrapCount();
             saveData.SaveTierData();
+            saveData.SaveCurrentWeapon();
 
             // Invoke Load the next scene
             Invoke("LoadScene", 0.2f);

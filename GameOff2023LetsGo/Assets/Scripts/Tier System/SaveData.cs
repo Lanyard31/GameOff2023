@@ -10,6 +10,7 @@ public class SaveData : MonoBehaviour
     //scrapCount
     public ScrapCounter scrapCounter;
     public bool initialSave = false;
+    public WeaponSwitcher weaponSwitcher;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class SaveData : MonoBehaviour
         {
             PlayerPrefs.SetInt("WeaponTier" + i, 0);
         }
+        PlayerPrefs.SetInt("LastWeapon", 0);
     }
 
     private void SaveScrapCountInitial()
@@ -51,6 +53,11 @@ public class SaveData : MonoBehaviour
         {
             PlayerPrefs.SetInt("WeaponTier" + i, weaponTiers[i].currentTier);
         }
+    }
+
+    public void SaveCurrentWeapon()
+    {
+        PlayerPrefs.SetInt("LastWeapon", weaponSwitcher.currentWeapon);
     }
 
     public void LoadScrapCount()
