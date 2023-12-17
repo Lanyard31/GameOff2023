@@ -7,11 +7,12 @@ using StarterAssets;
 public class WeaponZoom : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera playerCamera;
-    [SerializeField] float zoomedOutFOV = 60f;
+    public float zoomedOutFOV = 60f;
     [SerializeField] float zoomedInFOV = 20f;
     [SerializeField] private float zoomSpeed = 5f;
     [SerializeField] float zoomOutSensitivity = 2f;
     [SerializeField] float zoomInSensitivity = 1f;
+    [SerializeField] SetFOV setFOV;
     FirstPersonController fpsController;
 
     private void Awake()
@@ -22,6 +23,11 @@ public class WeaponZoom : MonoBehaviour
         fpsController.RotationSpeed = zoomOutSensitivity;
     }
 
+    private void OnEnable()
+    {
+        zoomedOutFOV = setFOV.targetFOV;
+    }
+
     private void Update()
     {
         CheckZoom();
@@ -29,6 +35,7 @@ public class WeaponZoom : MonoBehaviour
 
     private void CheckZoom()
     {
+        zoomedOutFOV = setFOV.targetFOV;
         if (Input.GetMouseButton(1) && playerCamera.m_Lens.FieldOfView != zoomedInFOV)
         {
             Zoom(zoomedInFOV);
