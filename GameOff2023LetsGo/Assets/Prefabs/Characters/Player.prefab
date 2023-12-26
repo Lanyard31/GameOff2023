@@ -27521,6 +27521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6589373661483136541, guid: 060c2e9fb32f9e44da16ea66f5394127,
         type: 3}
+      propertyPath: m_Value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589373661483136541, guid: 060c2e9fb32f9e44da16ea66f5394127,
+        type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -27620,7 +27625,10 @@ MonoBehaviour:
   fovSlider: {fileID: 5878793082311471648}
   minFOV: 20
   maxFOV: 60
+  weaponsPivot: {fileID: 7202218801048989741}
   targetFOV: 20
+  pivotScale: 0.4
+  pivotOffset: 0.3
 --- !u!114 &5878793082311471648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6589373661483136541, guid: 060c2e9fb32f9e44da16ea66f5394127,
@@ -27794,6 +27802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81,
+        type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
