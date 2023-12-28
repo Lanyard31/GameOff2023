@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &5295790564884375702
 Transform:
@@ -250,17 +250,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 1754
   m_IsSelectable: 1
-  m_SelectedFaces: 02000000
-  m_SelectedEdges:
-  - a: 8
-    b: 9
-  - a: 10
-    b: 8
-  - a: 9
-    b: 11
-  - a: 11
-    b: 10
-  m_SelectedVertices: 08000000090000000a0000000b000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &1926710434505056247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,7 +964,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &6201762071577977216
 Transform:
@@ -1317,7 +1309,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &6201762071731943379
 Transform:
@@ -2262,7 +2254,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &6201762071898577311
 Transform:
@@ -2607,7 +2599,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &15444865226286559
 Transform:
@@ -2987,6 +2979,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 2835
       objectReference: {fileID: 0}
+    - target: {fileID: 1517134319820871707, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 1969380437503589796, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
       propertyPath: m_Mesh
@@ -3012,6 +3009,11 @@ PrefabInstance:
       propertyPath: m_UnmodifiedMeshVersion
       value: 4529
       objectReference: {fileID: 0}
+    - target: {fileID: 2995210748829480070, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 3040041724814188938, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
       propertyPath: m_Mesh
@@ -3031,6 +3033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sci Fi Gates
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534987179031902335, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3534987179032192085, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
@@ -3687,6 +3694,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7477709918585745559, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7581275398888959805, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
       propertyPath: m_Mesh
@@ -3711,6 +3723,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220379885968964086, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a, type: 3}
@@ -3878,6 +3895,11 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 2835
       objectReference: {fileID: 0}
+    - target: {fileID: 1517134319820871707, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 1969380437503589796, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
       propertyPath: m_Mesh
@@ -3903,6 +3925,11 @@ PrefabInstance:
       propertyPath: m_UnmodifiedMeshVersion
       value: 3616
       objectReference: {fileID: 0}
+    - target: {fileID: 2995210748829480070, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 3040041724814188938, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
       propertyPath: m_Mesh
@@ -3922,6 +3949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sci Fi Gates (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534987179031902335, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3534987179032192085, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
@@ -4278,6 +4310,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7477709918585745559, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7581275398888959805, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
         type: 3}
       propertyPath: m_Mesh
@@ -4298,6 +4335,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 04722098239dc8a40b6c28530a248146, type: 2}
+    - target: {fileID: 9220379885968964086, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 965fe3a6d7dd0ae41a55c2f8fc560c4a, type: 3}
 --- !u!4 &7430897202905051658 stripped
