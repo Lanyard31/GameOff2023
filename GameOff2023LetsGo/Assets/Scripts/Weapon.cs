@@ -62,7 +62,7 @@ public class Weapon : MonoBehaviour
 
         DisplayAmmo();
         if (!canShoot) return;
-        if (automaticFire && Input.GetMouseButton(0))
+        if ((automaticFire && Input.GetMouseButton(0)) || (automaticFire && Input.GetAxis("RightTrigger") != 0f))
         {
             CaptureMouse();
             //activate laser
@@ -79,7 +79,7 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        else if (!automaticFire && canShootSingle && Input.GetMouseButton(0))
+        else if ((!automaticFire && canShootSingle && Input.GetMouseButton(0)) || (!automaticFire && canShootSingle && Input.GetAxis("RightTrigger") != 0f))
         {
             CaptureMouse();
             StartCoroutine(ShootOnce());

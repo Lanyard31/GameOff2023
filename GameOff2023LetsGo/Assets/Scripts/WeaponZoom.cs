@@ -36,12 +36,12 @@ public class WeaponZoom : MonoBehaviour
     {
         zoomedOutFOV = setFOV.targetFOV;
         zoomedInFOV = zoomedOutFOV * (1f - zoomInPercentage);
-        if (Input.GetMouseButton(1) && playerCamera.m_Lens.FieldOfView != zoomedInFOV)
+        if ((Input.GetMouseButton(1) || Input.GetAxis("LeftTrigger") != 0f) && playerCamera.m_Lens.FieldOfView != zoomedInFOV)
         {
             Zoom(zoomedInFOV);
             fpsController.RotationSpeed = zoomInSensitivity;
         }
-        else if (!Input.GetMouseButton(1) && playerCamera.m_Lens.FieldOfView != zoomedOutFOV)
+        else if (!Input.GetMouseButton(1) && Input.GetAxis("LeftTrigger") == 0f && playerCamera.m_Lens.FieldOfView != zoomedOutFOV)
         {
             Zoom(zoomedOutFOV);
             fpsController.RotationSpeed = zoomOutSensitivity;

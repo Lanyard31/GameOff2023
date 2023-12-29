@@ -16,6 +16,7 @@ public class Upgrader : MonoBehaviour
     [SerializeField] AudioSource upgradeCompleteSFX;
     [SerializeField] TextMeshProUGUI tierNumberText;
     [SerializeField] TextMeshProUGUI AmmoText;
+    [SerializeField] Pause pause;
 
     [HideInInspector]
     public Weapon weapon; // The weapon to upgrade
@@ -31,14 +32,15 @@ public class Upgrader : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) || (Input.GetButtonDown("West")))
+        if (pause.isPaused) return;
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("West"))
         {
-            if (canUpgrade)
+            if (canUpgrade && !isUpgrading)
             {
                 StartUpgrade();
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Q) || (Input.GetButtonUp("West")))
+        else if (isUpgrading == true && !Input.GetKey(KeyCode.Q) && !Input.GetButton("West"))
         {
             CancelUpgrade();
         }

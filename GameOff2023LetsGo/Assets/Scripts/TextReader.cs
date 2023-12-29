@@ -35,7 +35,7 @@ public class TextReader : MonoBehaviour
             return;
         }
         //If the player presses the spacebar or hits Start on their Gamepad, load all the text, and then load the next scene
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Submit"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Submit") || Input.GetButtonDown("Start"))
         {
             StopAllCoroutines();
             textDisplay.text = text;
