@@ -13,6 +13,7 @@ public class DeathHandler : MonoBehaviour
     [SerializeField] HealthCounter healthCounter;
     [SerializeField] AudioSource audioSource;
     FirstPersonController firstPersonController;
+    bool isDead = false;
 
     private void Start()
     {
@@ -37,10 +38,21 @@ public class DeathHandler : MonoBehaviour
         FindObjectOfType<WeaponSwitcher>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        isDead = true;
     }
 
     private void SetHealthToZero()
     {
         healthSlider.value = 0;
+    }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (isDead && hasFocus)
+        {
+            // Lock and hide the cursor when the game regains focus
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
