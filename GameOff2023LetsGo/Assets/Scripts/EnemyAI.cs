@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
         GetComponent<Animator>().SetTrigger("idle");
         target = FindObjectOfType<PlayerHealth>().transform;
         this.transform.rotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+        navMeshAgent.speed = navMeshAgent.speed + Random.Range(0f, 2f);
     }
 
     void Update()
