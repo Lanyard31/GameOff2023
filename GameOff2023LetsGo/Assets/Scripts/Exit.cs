@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TransitionsPlus;
 
 public class Exit : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Exit : MonoBehaviour
     private void Start()
     {
         saveData = FindObjectOfType<SaveData>();
+        
     }
 
     // This method is called when another collider enters the trigger
@@ -25,8 +27,15 @@ public class Exit : MonoBehaviour
             saveData.SaveTierData();
             saveData.SaveCurrentWeapon();
 
+            TransitionAnimator.Start(
+TransitionType.Dissolve, // transition type
+duration: 1.6f, // transition duration in seconds
+color: HexToColor("32313B")
+
+);
+
             // Invoke Load the next scene
-            Invoke("LoadScene", 0.2f);
+            Invoke("LoadScene", 1.62f);
         }
     }
 
@@ -34,6 +43,13 @@ public class Exit : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+
+    Color HexToColor(string hex)
+    {
+        Color color = new Color();
+        ColorUtility.TryParseHtmlString("#" + hex, out color);
+        return color;
     }
 }
 
