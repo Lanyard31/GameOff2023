@@ -26819,6 +26819,9 @@ MonoBehaviour:
   BottomClamp: -89
   cameraDutchModifier: {fileID: 1433315670}
   sensitivityMultiplier: 1
+  sprintDuration: 3
+  sprintVFXObject: {fileID: 6108983945835880867}
+  sprintAudioSource: {fileID: 3744031902939420225}
   isPaused: 0
 --- !u!114 &8616685848737228376
 MonoBehaviour:
@@ -28286,6 +28289,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4318211049361072454, guid: 07c2a27d5b013194190b04a4487ed0f5,
         type: 2}
+    - target: {fileID: 2377830936325701944, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2658741535169583819, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -28311,6 +28319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113551886213699621, guid: 2d3a85ecde41a8246a79669975912b74,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3322106100698056137, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
@@ -28815,6 +28828,18 @@ Transform:
 --- !u!4 &630574665234227065 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
+    type: 3}
+  m_PrefabInstance: {fileID: 8374646003155624091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &3744031902939420225 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5174003781046859482, guid: 2d3a85ecde41a8246a79669975912b74,
+    type: 3}
+  m_PrefabInstance: {fileID: 8374646003155624091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6108983945835880867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2377830936325701944, guid: 2d3a85ecde41a8246a79669975912b74,
     type: 3}
   m_PrefabInstance: {fileID: 8374646003155624091}
   m_PrefabAsset: {fileID: 0}
