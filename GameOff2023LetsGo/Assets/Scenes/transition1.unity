@@ -541,6 +541,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1968088400}
     m_Modifications:
+    - target: {fileID: 6774610931266793248, guid: a5e39ec1057047f42b55790e2bbf03fc,
+        type: 3}
+      propertyPath: m_text
+      value: "Humanity had its time. It has served its purpose.\n\nYour species will
+        be long stored in memory with reverence for your greatest achievement.\n\n                    
+        ...Me."
+      objectReference: {fileID: 0}
     - target: {fileID: 6774610931266793249, guid: a5e39ec1057047f42b55790e2bbf03fc,
         type: 3}
       propertyPath: m_Pivot.x

@@ -9,6 +9,8 @@ public class TextReader : MonoBehaviour
     [SerializeField] float lengthOfVoiceRecording = 20f;
     [SerializeField] TextMeshProUGUI textDisplay;
     [SerializeField] TextMeshProUGUI textSkip;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] audioClips;
 
     Color originalColor;
     string text;
@@ -45,6 +47,13 @@ public class TextReader : MonoBehaviour
         }
     }
 
+    AudioClip GetRandomAudioClip()
+    {
+        // Select a random AudioClip from the array
+        int randomIndex = Random.Range(0, audioClips.Length);
+        return audioClips[randomIndex];
+    }
+
     IEnumerator TypeText()
     {
         textDisplay.text = "";
@@ -53,7 +62,31 @@ public class TextReader : MonoBehaviour
         foreach (char letter in text.ToCharArray())
         {
             textDisplay.text += letter;
-            yield return new WaitForSeconds(timeToWait);
+            //insert random AudioClip here
+            if (letter == '\n')
+            {
+                yield return new WaitForSeconds(timeToWait * 3);
+            }
+            else if (letter == '.')
+            {
+                yield return new WaitForSeconds(timeToWait * 2);
+            }
+            else if (letter == ' ')
+            {
+                yield return new WaitForSeconds(timeToWait);
+            }
+            else
+            {
+                AudioClip randomClip = GetRandomAudioClip(); // Define a method to get a random AudioClip
+                float randomPitch = Random.Range(0.9f, 1.1f); // Adjust pitch within a range
+                float randomVolume = Random.Range(0.8f, 1.0f); // Adjust volume within a range
+
+                // Play the AudioClip with varying pitch and volume
+                audioSource.PlayOneShot(randomClip, audioSource.volume * randomVolume);
+                audioSource.pitch = randomPitch;
+
+                yield return new WaitForSeconds(timeToWait);
+            }
         }
         if (closingScreen)
         {
