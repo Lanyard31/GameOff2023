@@ -14,7 +14,7 @@ public class ExplodingBarrel : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector3 enemyPosition)
     {
         if (currentHealth > 0)
         {
@@ -41,7 +41,7 @@ public class ExplodingBarrel : MonoBehaviour
                 PlayerHealth playerHealth = collider.GetComponent<PlayerHealth>();
                 if (playerHealth != null)
                 {
-                    playerHealth.TakeDamage(explosionDamage);
+                    playerHealth.TakeDamage(explosionDamage, this.transform.position);
                 }
             }
             else if (collider.CompareTag("Enemy"))
@@ -59,7 +59,7 @@ public class ExplodingBarrel : MonoBehaviour
                 ExplodingBarrel barrel = collider.GetComponent<ExplodingBarrel>();
                 if (barrel != null)
                 {
-                    barrel.TakeDamage(explosionDamage);
+                    barrel.TakeDamage(explosionDamage, this.transform.position);
                 }
             }
         }

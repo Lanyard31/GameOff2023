@@ -9,16 +9,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] HealthCounter healthCounter;
     [SerializeField] AudioSource hurtSFX;
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector3 enemyPosition)
     {
         hitPoints = hitPoints - damage;
         damageEffectScript.ApplyDamageEffect();
         healthCounter.UpdateHealth(hitPoints);
         
-        //randomize pitch
-        float randomPitch = Random.Range(0.85f, 1.15f);
-        //play as OneShot
-        hurtSFX.PlayOneShot(hurtSFX.clip, randomPitch);
+        AudioSource.PlayClipAtPoint(hurtSFX.clip, enemyPosition);
 
         if (hitPoints <= 0)
         {
