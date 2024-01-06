@@ -6,10 +6,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 100f;
+    private float maxHealth;
     [SerializeField] GameObject[] explosions;
     [SerializeField] ObjectPool gearPool;
     [SerializeField] int gearsToAdd = 3;
     [SerializeField] HitFlash hitFlash;
+    [SerializeField] GameObject fireParticle;
 
     private MeshFlash meshFlash;
 
@@ -18,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        maxHealth = hitPoints;
         if (gearPool == null)
         {
             FindObjectOfType<ObjectPool>();
@@ -45,10 +48,20 @@ public class EnemyHealth : MonoBehaviour
         {
             meshFlash.EnemyHitFlash();
         }
+        if (!fireParticle.activeSelf && hitPoints <= (0.25 * maxHealth) && hitPoints >= (0.01 * maxHealth))
+        {
+            Invoke("ActivateFire", 0.18f);
+        }
         if (hitPoints <= 0)
         {
             Die();
         }
+    }
+
+    private void ActivateFire()
+    {
+        if (isDead) return;
+        fireParticle.SetActive(true);
     }
 
     private void MeshHitFlash()
