@@ -182,13 +182,24 @@ public class Weapon : MonoBehaviour
             if (hit.transform.gameObject.layer != playerLayer)
             {
                 EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
-                if (target == null) return;
-                if (target.isDead == true) return;
+                ExplodingBarrel explodingBarrel = hit.transform.GetComponent<ExplodingBarrel>();
 
-                float randomizedDamage = damage + UnityEngine.Random.Range(-5, 5);
-                target.TakeDamage(randomizedDamage);
-                Vector3 skewedHitPoint = new Vector3(hit.point.x + UnityEngine.Random.Range(-0.3f, 0.3f), hit.point.y + 0.25f, hit.point.z + UnityEngine.Random.Range(-0.3f, 0.3f));
-                DynamicTextManager.CreateText(skewedHitPoint, randomizedDamage.ToString(), DynamicTextManager.defaultData);
+                if (target != null)
+                {
+                    if (target.isDead == true) return;
+                    float randomizedDamage = damage + UnityEngine.Random.Range(-5, 5);
+                    target.TakeDamage(randomizedDamage);
+                    Vector3 skewedHitPoint = new Vector3(hit.point.x + UnityEngine.Random.Range(-0.3f, 0.3f), hit.point.y + 0.25f, hit.point.z + UnityEngine.Random.Range(-0.3f, 0.3f));
+                    DynamicTextManager.CreateText(skewedHitPoint, randomizedDamage.ToString(), DynamicTextManager.defaultData);
+                }
+                else if (explodingBarrel != null)
+                {
+                    // Code for damaging ExplodingBarrel
+                    float barrelDamage = damage + UnityEngine.Random.Range(-5, 5);
+                    explodingBarrel.TakeDamage(barrelDamage, hit.point);
+                    Vector3 skewedHitPoint = new Vector3(hit.point.x + UnityEngine.Random.Range(-0.3f, 0.3f), hit.point.y + 0.25f, hit.point.z + UnityEngine.Random.Range(-0.3f, 0.3f));
+                    DynamicTextManager.CreateText(skewedHitPoint, barrelDamage.ToString(), DynamicTextManager.defaultData);
+                }
             }
         }
         else

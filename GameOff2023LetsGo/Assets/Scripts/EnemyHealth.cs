@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
 
     public bool isObject;
     public bool isDead = false;
+    bool isBurning = false;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
         {
             meshFlash.EnemyHitFlash();
         }
-        if (!fireParticle.activeSelf && hitPoints <= (0.25 * maxHealth) && hitPoints >= (0.01 * maxHealth))
+        if (!fireParticle.activeSelf && hitPoints <= (0.20 * maxHealth) && hitPoints >= (0.01 * maxHealth))
         {
             Invoke("ActivateFire", 0.18f);
         }
@@ -61,7 +62,10 @@ public class EnemyHealth : MonoBehaviour
     private void ActivateFire()
     {
         if (isDead) return;
+        if (isBurning) return;
+        isBurning = true;
         fireParticle.SetActive(true);
+        StartCoroutine(BurningEffect());
     }
 
     private void MeshHitFlash()
@@ -102,5 +106,22 @@ public class EnemyHealth : MonoBehaviour
     public float GetHitPoints()
     {
         return hitPoints;
+    }
+
+    private IEnumerator BurningEffect()
+    {
+        WaitForSeconds delay = new WaitForSeconds(1.2f);
+
+        while (hitPoints > 0)
+        {
+            yield return delay;
+
+            if (isDead)
+            {
+                yield break;
+            }
+            TakeDamage(1f);
+
+        }
     }
 }
